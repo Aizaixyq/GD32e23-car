@@ -34,30 +34,32 @@ void ren3(){
 	car_stop();
 }
 
-void ren4(){
+void ren4(int p){
+	int i,j,z;
+	i = 25, j = 20, z=23;
 	car_stop();
 	car_both_rgb_on(red, 1000);
 	car_turnright1();
-	delay_1ms(320);
+	delay_1ms(320+i-(int)(p*0.05));
 	pwm_jt();
 	delay_1ms(100);
 	car_stop();
 	delay_1ms(50);
 	
 	car_forward();
-	delay_1ms(510);
+	delay_1ms(510+j);
 	car_stop();
 	delay_1ms(50);
 	
 	car_turnleft1();
-	delay_1ms(501);
+	delay_1ms(500+i+(int)(p*0.05)+z);
 	pwm_jt1();
 	delay_1ms(100);
 	car_stop();
 	delay_1ms(50);
 	
 	car_forward();
-	delay_1ms(310);
+	delay_1ms(310+j-(int)(p*0.04));
 	car_both_rgb_off();
 	car_stop();
 	delay_1ms(10);
@@ -69,35 +71,40 @@ void ren4(){
 void ren5(){
 	car_stop();
 	car_turnleft1();
-	car_left_rgb_flash(green, 3, 283);
+	car_left_rgb_flash(green, 3, 295);//000000
 	pwm_jt1();
-	delay_1ms(100);
+	delay_1ms(60);
 	car_stop();
 }
-void ren6(void){
+void ren6(int d){
+	int i,j;
+	if(d>=4000)i = 20, j = 55;
+	else if(d>=3000)i = 35, j = 25;
+	else if(d>=2000)i = 40, j = -5;
+	else i = 50, j = -10;
 	car_stop();
 	car_both_rgb_on(red, 1000);
 	car_turnleft1();
-	delay_1ms(320);
+	delay_1ms(320+i);
 	pwm_jt1();
 	delay_1ms(100);
 	car_stop();
 	delay_1ms(50);
 	
 	car_forward();
-	delay_1ms(510);
+	delay_1ms(510+j);
 	car_stop();
 	delay_1ms(50);
 	
 	car_turnright1();
-	delay_1ms(500);
+	delay_1ms(503+i+10);
 	pwm_jt();
 	delay_1ms(100);
 	car_stop();
 	delay_1ms(50);
 	
 	car_forward();
-	delay_1ms(310);
+	delay_1ms(310+j);
 	car_both_rgb_off();
 	car_stop();
 	delay_1ms(10);
@@ -152,7 +159,7 @@ int main(void)
 							ks = 0.4;
 						}
 						else {
-							ks = 1.0 - (abs(p)/(40*1.0));
+							ks = 0.9 - (abs(p)/(40*1.0));
 						}
 					}
 					
@@ -189,7 +196,7 @@ int main(void)
 							ren3();
 							ren3_b = 0;
 							ren = 0;
-							kd = 25;
+							kd = 25.5;
 						}
 					
 						if(ren5_b == 1){
@@ -237,20 +244,29 @@ int main(void)
 					
 					if((cibiao == 4 && za == 1)||(cibiao == 5 && za == 2)){
 						distance_value = ultra_get_distance();
-						if(distance_value <= 4440){
+						if(distance_value <=5300&&distance_value>=3400){
+							b = 0;
+							if(cibiao == 4)ks = 0.3;
+							else ks = 0.4;
+							continue;
+						}
+						else if(distance_value < 3400){
 							if(za == 1){
 								l9110s_backward(left, 1500);
 								l9110s_backward(right, 1500);
 								delay_1ms(370);
-								ren4();
+								int pp = ((adc_convert(ADC_CH_05) - adc_convert(ADC_CH_01))*100)/(adc_value[0] + adc_value[2]+1);
+								ren4(pp);
 								za++; 
 								kd = 7.7;
+								b = 1;
 							}
 							else if(za == 2){
 								l9110s_backward(left, 1500);
 								l9110s_backward(right, 1500);
-								delay_1ms(230);
-								ren6();
+								delay_1ms(235);
+								int d = ultra_get_distance();
+								ren6(d);
 								za++;
 								b = 0;
 								ks = 0.5;
