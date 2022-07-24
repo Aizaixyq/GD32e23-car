@@ -103,12 +103,7 @@ void EXTI2_3_IRQHandler(void)
 
 /* EXTI4_15 中断服务函数 */
 void EXTI4_15_IRQHandler(void)
-{
-    if(RESET != exti_interrupt_flag_get(EXTI_15))
-    {
-        exti_interrupt_flag_clear(EXTI_15);
-    }
-		
+{	
 	static unsigned char status = 0;// 0 enable timer, 1 disable timer
 	
 	if(RESET != exti_interrupt_flag_get(EXTI_6)) {
@@ -132,6 +127,11 @@ void EXTI4_15_IRQHandler(void)
 	}
     }
 	exti_interrupt_flag_clear(EXTI_6);
+		
+		if(RESET != exti_interrupt_flag_get(EXTI_15))
+    {
+        exti_interrupt_flag_clear(EXTI_15);
+    }
 }
 
 

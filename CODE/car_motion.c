@@ -70,11 +70,11 @@ void car_turnright(void)
 void car_turnright1(void)
 {
     l9110s_forward(left, 3000);
-    l9110s_backward(right, 3000);
+    l9110s_backward(right, 4200);
 }
 void car_turnleft1(void)
 {
-    l9110s_forward(right, 3000);
+    l9110s_forward(right, 3600);
     l9110s_backward(left, 3000);
 }
 

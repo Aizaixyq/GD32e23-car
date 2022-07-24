@@ -22,8 +22,10 @@ void car_init(void)
 	
 	uart0_init(UART0);							//串行口初始化
 	//AD采样通道初始化  
-	adc_channel_init(ADC_CH_01);				//AD采样通道初始化
+	adc_channel_init(ADC_CH_01);	
+	delay_1ms(5);
 	adc_channel_init(ADC_CH_04);
+	delay_1ms(5);
 	adc_channel_init(ADC_CH_05);
 
     key_init(K1);								//4按键初始化
