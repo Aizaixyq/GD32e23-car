@@ -28,7 +28,7 @@ void ren1(){
 void ren3(){
 	car_stop();
 	car_turnright1(); 
-	car_right_rgb_flash(green, 3, 290);
+	car_right_rgb_flash(green, 3, 287);
 	pwm_jt();
 	delay_1ms(100);
 	car_stop();
@@ -38,22 +38,38 @@ void ren4(){
 	car_stop();
 	car_both_rgb_on(red, 1000);
 	car_turnright1();
-	delay_1ms(1500);
+	delay_1ms(320);
+	pwm_jt();
+	delay_1ms(100);
+	car_stop();
+	delay_1ms(50);
+	
 	car_forward();
-	delay_1ms(1500);
+	delay_1ms(510);
 	car_stop();
+	delay_1ms(50);
+	
 	car_turnleft1();
-	delay_1ms(1500);
+	delay_1ms(501);
+	pwm_jt1();
+	delay_1ms(100);
 	car_stop();
-	car_turnright1();
-	delay_1ms(1500);
-	car_stop();
+	delay_1ms(50);
+	
+	car_forward();
+	delay_1ms(310);
 	car_both_rgb_off();
+	car_stop();
+	delay_1ms(10);
+	
+	l9110s_backward(left, 1500);
+	l9110s_backward(right, 1500);
+	delay_1ms(150);
 }
 void ren5(){
 	car_stop();
 	car_turnleft1();
-	car_left_rgb_flash(green, 3, 290);
+	car_left_rgb_flash(green, 3, 283);
 	pwm_jt1();
 	delay_1ms(100);
 	car_stop();
@@ -62,19 +78,34 @@ void ren6(void){
 	car_stop();
 	car_both_rgb_on(red, 1000);
 	car_turnleft1();
-	delay_1ms(1500);
+	delay_1ms(320);
+	pwm_jt1();
+	delay_1ms(100);
+	car_stop();
+	delay_1ms(50);
+	
 	car_forward();
-	delay_1ms(1500);
+	delay_1ms(510);
 	car_stop();
+	delay_1ms(50);
+	
 	car_turnright1();
-	delay_1ms(1500);
+	delay_1ms(500);
+	pwm_jt();
+	delay_1ms(100);
 	car_stop();
-	car_turnleft1();
-	delay_1ms(1500);
-	car_stop();
+	delay_1ms(50);
+	
+	car_forward();
+	delay_1ms(310);
 	car_both_rgb_off();
+	car_stop();
+	delay_1ms(10);
+	
+	l9110s_backward(left, 1500);
+	l9110s_backward(right, 1500);
+	delay_1ms(150);
 }
-
 
 
   extern unsigned char g_reed_flag;
@@ -83,15 +114,17 @@ int main(void)
 {
     /* 此处声明需要用到的局部变量 */
 	
-		int cibiao = 1, za = 1, distance_value, out = 0;
+		int cibiao = 1, za = 1, out = 0;
 	
-		int left_p, right_p, bs = 6900, p, p_old = 0, p_old2 = 0, old2 = 0, adc_value[3], last = 0;
+		unsigned int distance_value = 0;
 	
-		int ren = 0, ren2 = 0, ren2_js = 0;
+		int left_p, right_p, bs =7000, p, p_old = 0, p_old2 = 0, adc_value[3];
+	
+		int ren = 0, ren2 = 0, ren2_js = 0, ren3_b = 0, ren5_b = 0,b = 1;
 	
 		g_reed_flag = 0;
 		
-		float kp = 0, kd = 4.0, ks = 4.0;
+		float kp = 0, kd = 7.7, ks = 4.0;
 		
 		
     car_init();							//智能车初始化
@@ -102,30 +135,26 @@ int main(void)
 				while(1){
 					car_both_rgb_off();
 					
-					adc_value[0] = ((adc_mean_filter(ADC_CH_05,5)*1.0)/4095)*100;
-					adc_value[2] = ((adc_mean_filter(ADC_CH_01,5)*1.0)/4095)*100;
+					adc_value[0] = ((adc_mean_filter(ADC_CH_05,5)*1.0)/3500)*100;
+					adc_value[2] = ((adc_mean_filter(ADC_CH_01,5)*1.0)/3500)*100;
 					//adc_value[1] = adc_mean_filter(ADC_CH_04,5);
 					
-					distance_value = ultra_get_distance();
+					//distance_value = ultra_get_distance();
 					
 					p = ((adc_value[0] - adc_value[2])*100)/(adc_value[0] + adc_value[2]+1);
 					if(p>100) p=100;
 					if(p<-100) p=-100;
 					
-					kp = 2.0 + (p*p*1.0)* 0.0036;
+					kp = 2 + (p*p*1.0)* 0.0036;
 					
-					
-					if(abs(p) >= 20){
-						ks = 0.4;
+					if(b == 1){
+						if(abs(p) >= 20){
+							ks = 0.4;
+						}
+						else {
+							ks = 1.0 - (abs(p)/(40*1.0));
+						}
 					}
-					else {
-						ks = 1.0 - (abs(p)/(40*1.0));
-					}
-					
-					if(abs(p) >= 5){
-						kd = 1.9;
-					}
-					else kd = 5.0;
 					
 					
 					out = (kp * p + kd * (p*1.0 - (p_old*0.7 + p_old2*0.3)))*50;
@@ -143,53 +172,89 @@ int main(void)
 					l9110s_forward(left, (int)(left_p * ks));
 					l9110s_forward(right, (int)(right_p * ks));
 					
-					if(ren2 == 1){
-						if(ren2_js > 10)ren2 = 0;
-						if(ren2_js%5 == 0){
-							car_both_rgb_on(yellow, 10);
+					if(ren == 1){
+						if(ren2 == 1){
+							if(ren2_js > 10)ren2 = 0;
+							if(ren2_js%5 == 0){
+								car_both_rgb_on(yellow, 15);
+							}
+							ren2_js++;
+							continue;
 						}
-						ren2_js++;
-						continue;
-					}
-					
-					reed_check();
-				
-					if(g_reed_flag == 1){
-						if(cibiao == 1){
-							ren1();
-							cibiao++;
-						}
-						else if(cibiao == 2){
-							ren2 = 1;
-							cibiao++;
-						}
-						else if(cibiao == 3){
+						
+						if(ren3_b == 1){
 							l9110s_backward(left, 1500);
 							l9110s_backward(right, 1500);
 							delay_1ms(150);
 							ren3();
-							cibiao++;
+							ren3_b = 0;
+							ren = 0;
+							kd = 25;
 						}
-						else if(cibiao == 4){
+					
+						if(ren5_b == 1){
 							l9110s_backward(left, 1500);
 							l9110s_backward(right, 1500);
 							delay_1ms(150);
 							ren5();
+							ren5_b = 0;
+							ren = 0;
+							continue;
+						}
+					}
+				
+					reed_check();
+					if(g_reed_flag == 1){
+						if(cibiao == 1){
+							ren1();
 							cibiao++;
+							continue;
+						}
+						else if(cibiao == 2){
+							ren2 = 1;
+							ren = 1;
+							cibiao++;
+							continue;
+						}
+						else if(cibiao == 3){
+							ren3_b = 1;
+							ren = 1;
+							cibiao++;
+							continue;
+						}
+						else if(cibiao == 4){
+							ren5_b = 1;
+							ren = 1;
+							cibiao++;
+							ultra_init();
+							continue;
 						}
 						else if(cibiao == 5){
 							car_stop();
 							return 0;
 						}
 					}
-					if(0){
-						if(za == 1){
-							ren4();
-							za++; 
-						}
-						else if(za == 2){
-							ren6();
-							za++;
+					
+					if((cibiao == 4 && za == 1)||(cibiao == 5 && za == 2)){
+						distance_value = ultra_get_distance();
+						if(distance_value <= 4440){
+							if(za == 1){
+								l9110s_backward(left, 1500);
+								l9110s_backward(right, 1500);
+								delay_1ms(370);
+								ren4();
+								za++; 
+								kd = 7.7;
+							}
+							else if(za == 2){
+								l9110s_backward(left, 1500);
+								l9110s_backward(right, 1500);
+								delay_1ms(230);
+								ren6();
+								za++;
+								b = 0;
+								ks = 0.5;
+							}
 						}
 					}
 					

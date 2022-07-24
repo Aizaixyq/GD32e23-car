@@ -58,9 +58,12 @@ Section Cross References
     main.o(.text.ren4) refers to car_light.o(.text.car_both_rgb_on) for car_both_rgb_on
     main.o(.text.ren4) refers to car_motion.o(.text.car_turnright1) for car_turnright1
     main.o(.text.ren4) refers to hf_systick.o(.text.delay_1ms) for delay_1ms
+    main.o(.text.ren4) refers to main.o(.text.pwm_jt) for pwm_jt
     main.o(.text.ren4) refers to car_motion.o(.text.car_forward) for car_forward
     main.o(.text.ren4) refers to car_motion.o(.text.car_turnleft1) for car_turnleft1
+    main.o(.text.ren4) refers to main.o(.text.pwm_jt1) for pwm_jt1
     main.o(.text.ren4) refers to car_light.o(.text.car_both_rgb_off) for car_both_rgb_off
+    main.o(.text.ren4) refers to hf_l9110s_2.o(.text.l9110s_backward) for l9110s_backward
     main.o(.ARM.exidx.text.ren4) refers to main.o(.text.ren4) for [Anonymous Symbol]
     main.o(.text.ren5) refers to car_motion.o(.text.car_stop) for car_stop
     main.o(.text.ren5) refers to car_motion.o(.text.car_turnleft1) for car_turnleft1
@@ -72,9 +75,12 @@ Section Cross References
     main.o(.text.ren6) refers to car_light.o(.text.car_both_rgb_on) for car_both_rgb_on
     main.o(.text.ren6) refers to car_motion.o(.text.car_turnleft1) for car_turnleft1
     main.o(.text.ren6) refers to hf_systick.o(.text.delay_1ms) for delay_1ms
+    main.o(.text.ren6) refers to main.o(.text.pwm_jt1) for pwm_jt1
     main.o(.text.ren6) refers to car_motion.o(.text.car_forward) for car_forward
     main.o(.text.ren6) refers to car_motion.o(.text.car_turnright1) for car_turnright1
+    main.o(.text.ren6) refers to main.o(.text.pwm_jt) for pwm_jt
     main.o(.text.ren6) refers to car_light.o(.text.car_both_rgb_off) for car_both_rgb_off
+    main.o(.text.ren6) refers to hf_l9110s_2.o(.text.l9110s_backward) for l9110s_backward
     main.o(.ARM.exidx.text.ren6) refers to main.o(.text.ren6) for [Anonymous Symbol]
     main.o(.text.main) refers to car_init.o(.text.car_init) for car_init
     main.o(.text.main) refers to car_light.o(.text.car_both_rgb_flash) for car_both_rgb_flash
@@ -84,7 +90,6 @@ Section Cross References
     main.o(.text.main) refers to ddiv.o(.text) for __aeabi_ddiv
     main.o(.text.main) refers to dmul.o(.text) for __aeabi_dmul
     main.o(.text.main) refers to dfixi.o(.text) for __aeabi_d2iz
-    main.o(.text.main) refers to hf_hc-sr04.o(.text.ultra_get_distance) for ultra_get_distance
     main.o(.text.main) refers to dadd.o(.text) for __aeabi_dadd
     main.o(.text.main) refers to d2f.o(.text) for __aeabi_d2f
     main.o(.text.main) refers to main.o(.text.abs) for abs
@@ -94,13 +99,17 @@ Section Cross References
     main.o(.text.main) refers to ffixi.o(.text) for __aeabi_f2iz
     main.o(.text.main) refers to hf_l9110s_2.o(.text.l9110s_forward) for l9110s_forward
     main.o(.text.main) refers to car_light.o(.text.car_both_rgb_on) for car_both_rgb_on
-    main.o(.text.main) refers to car_reed.o(.text.reed_check) for reed_check
-    main.o(.text.main) refers to main.o(.text.ren1) for ren1
     main.o(.text.main) refers to hf_l9110s_2.o(.text.l9110s_backward) for l9110s_backward
     main.o(.text.main) refers to hf_systick.o(.text.delay_1ms) for delay_1ms
     main.o(.text.main) refers to main.o(.text.ren3) for ren3
     main.o(.text.main) refers to main.o(.text.ren5) for ren5
+    main.o(.text.main) refers to car_reed.o(.text.reed_check) for reed_check
+    main.o(.text.main) refers to main.o(.text.ren1) for ren1
+    main.o(.text.main) refers to hf_hc-sr04.o(.text.ultra_init) for ultra_init
     main.o(.text.main) refers to car_motion.o(.text.car_stop) for car_stop
+    main.o(.text.main) refers to hf_hc-sr04.o(.text.ultra_get_distance) for ultra_get_distance
+    main.o(.text.main) refers to main.o(.text.ren4) for ren4
+    main.o(.text.main) refers to main.o(.text.ren6) for ren6
     main.o(.text.main) refers to car_reed.o(.bss.g_reed_flag) for g_reed_flag
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     board.o(.text.board_led_init) refers to hf_gpio.o(.text.gpio_init) for gpio_init
@@ -1213,10 +1222,8 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.exidx.text.pwm_jt1), (8 bytes).
     Removing main.o(.ARM.exidx.text.ren1), (8 bytes).
     Removing main.o(.ARM.exidx.text.ren3), (8 bytes).
-    Removing main.o(.text.ren4), (84 bytes).
     Removing main.o(.ARM.exidx.text.ren4), (8 bytes).
     Removing main.o(.ARM.exidx.text.ren5), (8 bytes).
-    Removing main.o(.text.ren6), (84 bytes).
     Removing main.o(.ARM.exidx.text.ren6), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
@@ -1233,7 +1240,6 @@ Removing Unused input sections from the image.
     Removing car_init.o(.ARM.exidx.text.car_init), (8 bytes).
     Removing car_init.o(.ARM.exidx.text.int_init), (8 bytes).
     Removing car_motion.o(.text), (0 bytes).
-    Removing car_motion.o(.text.car_forward), (32 bytes).
     Removing car_motion.o(.ARM.exidx.text.car_forward), (8 bytes).
     Removing car_motion.o(.text.car_backward), (32 bytes).
     Removing car_motion.o(.ARM.exidx.text.car_backward), (8 bytes).
@@ -2372,7 +2378,7 @@ Removing Unused input sections from the image.
     Removing gd32e23x_wwdgt.o(.ARM.exidx.text.wwdgt_flag_clear), (8 bytes).
     Removing dfltui.o(.text), (28 bytes).
 
-1185 unused section(s) (total 37888 bytes) removed from the image.
+1182 unused section(s) (total 37688 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2593,242 +2599,249 @@ Image Symbol Table
     __arm_cp.0_5                             0x080015f4   Number         4  car_light.o(.text.car_both_rgb_on)
     __arm_cp.0_6                             0x080015f8   Number         4  car_light.o(.text.car_both_rgb_on)
     __arm_cp.0_7                             0x080015fc   Number         4  car_light.o(.text.car_both_rgb_on)
-    [Anonymous Symbol]                       0x08001600   Section        0  car_init.o(.text.car_init)
-    __arm_cp.0_0                             0x08001678   Number         4  car_init.o(.text.car_init)
-    [Anonymous Symbol]                       0x0800167c   Section        0  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_0                             0x080018ec   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_1                             0x080018f0   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_2                             0x080018f4   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_3                             0x080018f8   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_4                             0x080018fc   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_5                             0x08001900   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_6                             0x08001904   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_7                             0x08001908   Number         4  car_light.o(.text.car_left_rgb_flash)
-    __arm_cp.1_8                             0x0800190c   Number         4  car_light.o(.text.car_left_rgb_flash)
-    [Anonymous Symbol]                       0x08001910   Section        0  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_0                             0x08001b80   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_1                             0x08001b84   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_2                             0x08001b88   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_3                             0x08001b8c   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_4                             0x08001b90   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_5                             0x08001b94   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_6                             0x08001b98   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_7                             0x08001b9c   Number         4  car_light.o(.text.car_right_rgb_flash)
-    __arm_cp.3_8                             0x08001ba0   Number         4  car_light.o(.text.car_right_rgb_flash)
-    [Anonymous Symbol]                       0x08001ba4   Section        0  car_motion.o(.text.car_stop)
-    [Anonymous Symbol]                       0x08001bc0   Section        0  car_motion.o(.text.car_turnleft1)
-    [Anonymous Symbol]                       0x08001bdc   Section        0  car_motion.o(.text.car_turnright1)
-    __arm_cp.5_0                             0x08001bf8   Number         4  car_motion.o(.text.car_turnright1)
-    [Anonymous Symbol]                       0x08001bfc   Section        0  hf_systick.o(.text.delay_1ms)
-    __arm_cp.2_0                             0x08001c6c   Number         4  hf_systick.o(.text.delay_1ms)
-    [Anonymous Symbol]                       0x08001c70   Section        0  hf_systick.o(.text.delay_1us)
-    __arm_cp.1_0                             0x08001ce0   Number         4  hf_systick.o(.text.delay_1us)
-    __arm_cp.1_1                             0x08001ce4   Number         4  hf_systick.o(.text.delay_1us)
-    __arm_cp.1_2                             0x08001ce8   Number         4  hf_systick.o(.text.delay_1us)
-    __arm_cp.1_3                             0x08001cec   Number         4  hf_systick.o(.text.delay_1us)
-    [Anonymous Symbol]                       0x08001cf0   Section        0  gd32e23x_exti.o(.text.exti_init)
-    __arm_cp.1_1                             0x08001dc0   Number         4  gd32e23x_exti.o(.text.exti_init)
-    __arm_cp.1_2                             0x08001dc4   Number         4  gd32e23x_exti.o(.text.exti_init)
-    __arm_cp.1_3                             0x08001dc8   Number         4  gd32e23x_exti.o(.text.exti_init)
-    [Anonymous Symbol]                       0x08001dcc   Section        0  gd32e23x_exti.o(.text.exti_interrupt_enable)
-    [Anonymous Symbol]                       0x08001de0   Section        0  gd32e23x_exti.o(.text.exti_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x08001df0   Section        0  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
-    __arm_cp.10_0                            0x08001e2c   Number         4  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
-    __arm_cp.10_1                            0x08001e30   Number         4  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
-    [Anonymous Symbol]                       0x08001e34   Section        0  gd32e23x_gpio.o(.text.gpio_af_set)
-    [Anonymous Symbol]                       0x08001ef4   Section        0  hf_gpio.o(.text.gpio_bit_output)
-    [Anonymous Symbol]                       0x08001f1e   Section        0  gd32e23x_gpio.o(.text.gpio_bit_reset)
-    [Anonymous Symbol]                       0x08001f2e   Section        0  gd32e23x_gpio.o(.text.gpio_bit_set)
-    [Anonymous Symbol]                       0x08001f3e   Section        0  hf_gpio.o(.text.gpio_get_input)
-    [Anonymous Symbol]                       0x08001f6c   Section        0  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_7                             0x08002348   Number         4  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_8                             0x0800234c   Number         4  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_9                             0x08002350   Number         4  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_10                            0x08002354   Number         4  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_11                            0x08002358   Number         4  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_12                            0x0800235c   Number         4  hf_gpio.o(.text.gpio_init)
-    __arm_cp.0_13                            0x08002360   Number         4  hf_gpio.o(.text.gpio_init)
-    [Anonymous Symbol]                       0x080023b6   Section        0  gd32e23x_gpio.o(.text.gpio_input_bit_get)
-    [Anonymous Symbol]                       0x080023e0   Section        0  gd32e23x_gpio.o(.text.gpio_mode_set)
-    [Anonymous Symbol]                       0x0800246e   Section        0  gd32e23x_gpio.o(.text.gpio_output_options_set)
-    [Anonymous Symbol]                       0x080024f8   Section        0  car_init.o(.text.int_init)
-    [Anonymous Symbol]                       0x080024fc   Section        0  car_4keys.o(.text.key_init)
-    [Anonymous Symbol]                       0x08002568   Section        0  hf_l9110s_2.o(.text.l9110s_backward)
-    [Anonymous Symbol]                       0x080025c0   Section        0  hf_l9110s_2.o(.text.l9110s_forward)
-    [Anonymous Symbol]                       0x08002618   Section        0  hf_l9110s_2.o(.text.l9110s_init)
-    __arm_cp.0_0                             0x080026b4   Number         4  hf_l9110s_2.o(.text.l9110s_init)
-    __arm_cp.0_1                             0x080026b8   Number         4  hf_l9110s_2.o(.text.l9110s_init)
-    __arm_cp.0_2                             0x080026bc   Number         4  hf_l9110s_2.o(.text.l9110s_init)
-    __arm_cp.0_3                             0x080026c0   Number         4  hf_l9110s_2.o(.text.l9110s_init)
-    __arm_cp.0_4                             0x080026c4   Number         4  hf_l9110s_2.o(.text.l9110s_init)
-    __arm_cp.0_5                             0x080026c8   Number         4  hf_l9110s_2.o(.text.l9110s_init)
-    [Anonymous Symbol]                       0x080026cc   Section        0  main.o(.text.main)
-    __arm_cp.8_0                             0x08002a04   Number         4  main.o(.text.main)
-    __arm_cp.8_1                             0x08002a08   Number         4  main.o(.text.main)
-    __arm_cp.8_2                             0x08002a0c   Number         4  main.o(.text.main)
-    __arm_cp.8_3                             0x08002a10   Number         4  main.o(.text.main)
-    __arm_cp.8_4                             0x08002a14   Number         4  main.o(.text.main)
-    __arm_cp.8_5                             0x08002a18   Number         4  main.o(.text.main)
-    __arm_cp.8_6                             0x08002a1c   Number         4  main.o(.text.main)
-    __arm_cp.8_7                             0x08002a20   Number         4  main.o(.text.main)
-    __arm_cp.8_8                             0x08002a24   Number         4  main.o(.text.main)
-    __arm_cp.8_9                             0x08002a28   Number         4  main.o(.text.main)
-    __arm_cp.8_10                            0x08002a2c   Number         4  main.o(.text.main)
-    __arm_cp.8_11                            0x08002a30   Number         4  main.o(.text.main)
-    __arm_cp.8_12                            0x08002a34   Number         4  main.o(.text.main)
-    __arm_cp.8_13                            0x08002a38   Number         4  main.o(.text.main)
-    __arm_cp.8_14                            0x08002a3c   Number         4  main.o(.text.main)
-    __arm_cp.8_15                            0x08002a40   Number         4  main.o(.text.main)
-    __arm_cp.8_16                            0x08002a44   Number         4  main.o(.text.main)
-    __arm_cp.8_19                            0x08002a48   Number         4  main.o(.text.main)
-    __arm_cp.8_20                            0x08002a4c   Number         4  main.o(.text.main)
-    __arm_cp.8_21                            0x08002a50   Number         4  main.o(.text.main)
-    [Anonymous Symbol]                       0x08002a54   Section        0  gd32e23x_misc.o(.text.nvic_irq_enable)
-    [Anonymous Symbol]                       0x08002a80   Section        0  gd32e23x_misc.o(.text.nvic_vector_table_set)
-    __arm_cp.7_0                             0x08002a98   Number         4  gd32e23x_misc.o(.text.nvic_vector_table_set)
-    __arm_cp.7_1                             0x08002a9c   Number         4  gd32e23x_misc.o(.text.nvic_vector_table_set)
-    [Anonymous Symbol]                       0x08002aa0   Section        0  hf_pwm.o(.text.pwm_duty)
-    __arm_cp.2_7                             0x08002b4c   Number         4  hf_pwm.o(.text.pwm_duty)
-    [Anonymous Symbol]                       0x08002b50   Section        0  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_0                             0x08002ca0   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_1                             0x08002ca4   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_2                             0x08002ca8   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_3                             0x08002cac   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_4                             0x08002cb0   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_5                             0x08002cb4   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_6                             0x08002cb8   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_7                             0x08002cbc   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_8                             0x08002cc0   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_9                             0x08002cc4   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_10                            0x08002cc8   Number         4  hf_pwm.o(.text.pwm_init)
-    __arm_cp.0_11                            0x08002ccc   Number         4  hf_pwm.o(.text.pwm_init)
-    [Anonymous Symbol]                       0x08002cd0   Section        0  main.o(.text.pwm_jt)
-    [Anonymous Symbol]                       0x08002cec   Section        0  main.o(.text.pwm_jt1)
-    __arm_cp.2_0                             0x08002d08   Number         4  main.o(.text.pwm_jt1)
-    [Anonymous Symbol]                       0x08002d0c   Section        0  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
-    __arm_cp.14_0                            0x08002e8c   Number         4  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
-    __arm_cp.14_1                            0x08002e90   Number         4  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
-    __arm_cp.14_2                            0x08002e94   Number         4  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
-    [Anonymous Symbol]                       0x08002e98   Section        0  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_0                            0x0800316c   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_1                            0x08003170   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_2                            0x08003174   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_3                            0x08003178   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_4                            0x0800317c   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_5                            0x08003180   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_6                            0x08003184   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_7                            0x08003188   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    __arm_cp.38_8                            0x0800318c   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    [Anonymous Symbol]                       0x08003190   Section        0  gd32e23x_rcu.o(.text.rcu_periph_clock_enable)
-    [Anonymous Symbol]                       0x080031b4   Section        0  gd32e23x_rcu.o(.text.rcu_periph_reset_disable)
-    [Anonymous Symbol]                       0x080031d8   Section        0  gd32e23x_rcu.o(.text.rcu_periph_reset_enable)
-    [Anonymous Symbol]                       0x080031fc   Section        0  car_reed.o(.text.reed_check)
-    __arm_cp.1_0                             0x08003220   Number         4  car_reed.o(.text.reed_check)
-    [Anonymous Symbol]                       0x08003224   Section        0  car_reed.o(.text.reed_init)
-    [Anonymous Symbol]                       0x08003236   Section        0  main.o(.text.ren1)
-    [Anonymous Symbol]                       0x08003256   Section        0  main.o(.text.ren3)
-    [Anonymous Symbol]                       0x0800327c   Section        0  main.o(.text.ren5)
-    [Anonymous Symbol]                       0x080032a4   Section        0  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
-    __arm_cp.5_0                             0x08003348   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
-    __arm_cp.5_1                             0x0800334c   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
-    __arm_cp.5_2                             0x08003350   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
-    __arm_cp.5_3                             0x08003354   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
-    system_clock_72m_hxtal                   0x08003359   Thumb Code   208  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    [Anonymous Symbol]                       0x08003358   Section        0  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    __arm_cp.3_0                             0x08003428   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    __arm_cp.3_1                             0x0800342c   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    __arm_cp.3_2                             0x08003430   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    __arm_cp.3_3                             0x08003434   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    __arm_cp.3_4                             0x08003438   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
-    system_clock_config                      0x0800343d   Thumb Code     8  system_gd32e23x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800343c   Section        0  system_gd32e23x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x08003444   Section        0  gd32e23x_misc.o(.text.systick_clksource_set)
-    __arm_cp.10_0                            0x0800346c   Number         4  gd32e23x_misc.o(.text.systick_clksource_set)
-    [Anonymous Symbol]                       0x08003470   Section        0  hf_systick.o(.text.systick_config)
-    __arm_cp.0_0                             0x0800349c   Number         4  hf_systick.o(.text.systick_config)
-    __arm_cp.0_1                             0x080034a0   Number         4  hf_systick.o(.text.systick_config)
-    __arm_cp.0_2                             0x080034a4   Number         4  hf_systick.o(.text.systick_config)
-    __arm_cp.0_3                             0x080034a8   Number         4  hf_systick.o(.text.systick_config)
-    __arm_cp.0_4                             0x080034ac   Number         4  hf_systick.o(.text.systick_config)
-    [Anonymous Symbol]                       0x080034b0   Section        0  gd32e23x_timer.o(.text.timer_auto_reload_shadow_enable)
-    [Anonymous Symbol]                       0x080034c4   Section        0  gd32e23x_timer.o(.text.timer_channel_output_config)
-    __arm_cp.42_0                            0x080037a8   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
-    __arm_cp.42_1                            0x080037ac   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
-    __arm_cp.42_2                            0x080037b0   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
-    __arm_cp.42_3                            0x080037b4   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
-    [Anonymous Symbol]                       0x080037b8   Section        0  gd32e23x_timer.o(.text.timer_channel_output_mode_config)
-    [Anonymous Symbol]                       0x08003858   Section        0  gd32e23x_timer.o(.text.timer_channel_output_pulse_value_config)
-    [Anonymous Symbol]                       0x080038ac   Section        0  gd32e23x_timer.o(.text.timer_channel_output_shadow_config)
-    [Anonymous Symbol]                       0x0800394a   Section        0  gd32e23x_timer.o(.text.timer_counter_read)
-    [Anonymous Symbol]                       0x0800395e   Section        0  gd32e23x_timer.o(.text.timer_counter_value_config)
-    [Anonymous Symbol]                       0x08003970   Section        0  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_1                             0x08003a38   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_3                             0x08003a3c   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_4                             0x08003a40   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_7                             0x08003a44   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_8                             0x08003a48   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_9                             0x08003a4c   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_10                            0x08003a50   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    __arm_cp.0_11                            0x08003a54   Number         4  gd32e23x_timer.o(.text.timer_deinit)
-    [Anonymous Symbol]                       0x08003a58   Section        0  gd32e23x_timer.o(.text.timer_disable)
-    [Anonymous Symbol]                       0x08003a6a   Section        0  gd32e23x_timer.o(.text.timer_enable)
-    [Anonymous Symbol]                       0x08003a7c   Section        0  gd32e23x_timer.o(.text.timer_flag_clear)
-    [Anonymous Symbol]                       0x08003a8e   Section        0  gd32e23x_timer.o(.text.timer_flag_get)
-    [Anonymous Symbol]                       0x08003ab8   Section        0  gd32e23x_timer.o(.text.timer_init)
-    __arm_cp.2_0                             0x08003b9c   Number         4  gd32e23x_timer.o(.text.timer_init)
-    __arm_cp.2_1                             0x08003ba0   Number         4  gd32e23x_timer.o(.text.timer_init)
-    __arm_cp.2_2                             0x08003ba4   Number         4  gd32e23x_timer.o(.text.timer_init)
-    __arm_cp.2_3                             0x08003ba8   Number         4  gd32e23x_timer.o(.text.timer_init)
-    __arm_cp.2_4                             0x08003bac   Number         4  gd32e23x_timer.o(.text.timer_init)
-    __arm_cp.2_5                             0x08003bb0   Number         4  gd32e23x_timer.o(.text.timer_init)
-    [Anonymous Symbol]                       0x08003bb4   Section        0  gd32e23x_timer.o(.text.timer_interrupt_enable)
-    [Anonymous Symbol]                       0x08003bc8   Section        0  gd32e23x_timer.o(.text.timer_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x08003bda   Section        0  gd32e23x_timer.o(.text.timer_primary_output_config)
-    [Anonymous Symbol]                       0x08003c0c   Section        0  hf_tm1637.o(.text.tm1637_init)
-    [Anonymous Symbol]                       0x08003c2c   Section        0  car_uart.o(.text.uart0_init)
-    [Anonymous Symbol]                       0x08003c54   Section        0  hf_uart.o(.text.uart_init)
-    __arm_cp.0_1                             0x08003e08   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_2                             0x08003e0c   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_3                             0x08003e10   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_4                             0x08003e14   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_5                             0x08003e18   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_6                             0x08003e1c   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_9                             0x08003e20   Number         4  hf_uart.o(.text.uart_init)
-    __arm_cp.0_10                            0x08003e24   Number         4  hf_uart.o(.text.uart_init)
-    [Anonymous Symbol]                       0x08003e28   Section        0  hf_hc-sr04.o(.text.ultra_get_distance)
-    __arm_cp.1_4                             0x08003ee4   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
-    __arm_cp.1_5                             0x08003ee8   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
-    __arm_cp.1_6                             0x08003eec   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
-    __arm_cp.1_7                             0x08003ef0   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
-    __arm_cp.1_8                             0x08003ef4   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
-    __arm_cp.1_9                             0x08003ef8   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
-    [Anonymous Symbol]                       0x08003efc   Section        0  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_0                             0x08003fb0   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_1                             0x08003fb4   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_2                             0x08003fb8   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_3                             0x08003fbc   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_4                             0x08003fc0   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_5                             0x08003fc4   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    __arm_cp.0_6                             0x08003fc8   Number         4  hf_hc-sr04.o(.text.ultra_init)
-    [Anonymous Symbol]                       0x08003fcc   Section        0  gd32e23x_usart.o(.text.usart_baudrate_set)
-    __arm_cp.1_2                             0x08004078   Number         4  gd32e23x_usart.o(.text.usart_baudrate_set)
-    [Anonymous Symbol]                       0x0800407c   Section        0  gd32e23x_usart.o(.text.usart_deinit)
-    __arm_cp.0_0                             0x080040c0   Number         4  gd32e23x_usart.o(.text.usart_deinit)
-    __arm_cp.0_1                             0x080040c4   Number         4  gd32e23x_usart.o(.text.usart_deinit)
-    __arm_cp.0_2                             0x080040c8   Number         4  gd32e23x_usart.o(.text.usart_deinit)
-    __arm_cp.0_3                             0x080040cc   Number         4  gd32e23x_usart.o(.text.usart_deinit)
-    [Anonymous Symbol]                       0x080040d0   Section        0  gd32e23x_usart.o(.text.usart_enable)
-    [Anonymous Symbol]                       0x080040e2   Section        0  gd32e23x_usart.o(.text.usart_receive_config)
-    [Anonymous Symbol]                       0x08004100   Section        0  gd32e23x_usart.o(.text.usart_transmit_config)
-    [Anonymous Symbol]                       0x08004120   Section        0  hf_ws2812b.o(.text.ws2812b_init)
-    __arm_cp.0_0                             0x08004140   Number         4  hf_ws2812b.o(.text.ws2812b_init)
-    [Anonymous Symbol]                       0x08004144   Section        0  hf_ws2812b.o(.text.ws2812b_write)
-    __arm_cp.1_0                             0x080041e4   Number         4  hf_ws2812b.o(.text.ws2812b_write)
-    __arm_cp.1_1                             0x080041e8   Number         4  hf_ws2812b.o(.text.ws2812b_write)
-    i.__ARM_clz                              0x080041ec   Section        0  depilogue.o(i.__ARM_clz)
-    i.__scatterload_copy                     0x0800421a   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08004228   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800422a   Section       14  handlers.o(i.__scatterload_zeroinit)
+    [Anonymous Symbol]                       0x08001600   Section        0  car_motion.o(.text.car_forward)
+    __arm_cp.0_0                             0x0800161c   Number         4  car_motion.o(.text.car_forward)
+    [Anonymous Symbol]                       0x08001620   Section        0  car_init.o(.text.car_init)
+    __arm_cp.0_0                             0x08001698   Number         4  car_init.o(.text.car_init)
+    [Anonymous Symbol]                       0x0800169c   Section        0  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_0                             0x0800190c   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_1                             0x08001910   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_2                             0x08001914   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_3                             0x08001918   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_4                             0x0800191c   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_5                             0x08001920   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_6                             0x08001924   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_7                             0x08001928   Number         4  car_light.o(.text.car_left_rgb_flash)
+    __arm_cp.1_8                             0x0800192c   Number         4  car_light.o(.text.car_left_rgb_flash)
+    [Anonymous Symbol]                       0x08001930   Section        0  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_0                             0x08001ba0   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_1                             0x08001ba4   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_2                             0x08001ba8   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_3                             0x08001bac   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_4                             0x08001bb0   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_5                             0x08001bb4   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_6                             0x08001bb8   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_7                             0x08001bbc   Number         4  car_light.o(.text.car_right_rgb_flash)
+    __arm_cp.3_8                             0x08001bc0   Number         4  car_light.o(.text.car_right_rgb_flash)
+    [Anonymous Symbol]                       0x08001bc4   Section        0  car_motion.o(.text.car_stop)
+    [Anonymous Symbol]                       0x08001be0   Section        0  car_motion.o(.text.car_turnleft1)
+    [Anonymous Symbol]                       0x08001bfc   Section        0  car_motion.o(.text.car_turnright1)
+    __arm_cp.5_0                             0x08001c18   Number         4  car_motion.o(.text.car_turnright1)
+    [Anonymous Symbol]                       0x08001c1c   Section        0  hf_systick.o(.text.delay_1ms)
+    __arm_cp.2_0                             0x08001c8c   Number         4  hf_systick.o(.text.delay_1ms)
+    [Anonymous Symbol]                       0x08001c90   Section        0  hf_systick.o(.text.delay_1us)
+    __arm_cp.1_0                             0x08001d00   Number         4  hf_systick.o(.text.delay_1us)
+    __arm_cp.1_1                             0x08001d04   Number         4  hf_systick.o(.text.delay_1us)
+    __arm_cp.1_2                             0x08001d08   Number         4  hf_systick.o(.text.delay_1us)
+    __arm_cp.1_3                             0x08001d0c   Number         4  hf_systick.o(.text.delay_1us)
+    [Anonymous Symbol]                       0x08001d10   Section        0  gd32e23x_exti.o(.text.exti_init)
+    __arm_cp.1_1                             0x08001de0   Number         4  gd32e23x_exti.o(.text.exti_init)
+    __arm_cp.1_2                             0x08001de4   Number         4  gd32e23x_exti.o(.text.exti_init)
+    __arm_cp.1_3                             0x08001de8   Number         4  gd32e23x_exti.o(.text.exti_init)
+    [Anonymous Symbol]                       0x08001dec   Section        0  gd32e23x_exti.o(.text.exti_interrupt_enable)
+    [Anonymous Symbol]                       0x08001e00   Section        0  gd32e23x_exti.o(.text.exti_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08001e10   Section        0  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
+    __arm_cp.10_0                            0x08001e4c   Number         4  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
+    __arm_cp.10_1                            0x08001e50   Number         4  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
+    [Anonymous Symbol]                       0x08001e54   Section        0  gd32e23x_gpio.o(.text.gpio_af_set)
+    [Anonymous Symbol]                       0x08001f14   Section        0  hf_gpio.o(.text.gpio_bit_output)
+    [Anonymous Symbol]                       0x08001f3e   Section        0  gd32e23x_gpio.o(.text.gpio_bit_reset)
+    [Anonymous Symbol]                       0x08001f4e   Section        0  gd32e23x_gpio.o(.text.gpio_bit_set)
+    [Anonymous Symbol]                       0x08001f5e   Section        0  hf_gpio.o(.text.gpio_get_input)
+    [Anonymous Symbol]                       0x08001f8c   Section        0  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_7                             0x08002368   Number         4  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_8                             0x0800236c   Number         4  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_9                             0x08002370   Number         4  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_10                            0x08002374   Number         4  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_11                            0x08002378   Number         4  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_12                            0x0800237c   Number         4  hf_gpio.o(.text.gpio_init)
+    __arm_cp.0_13                            0x08002380   Number         4  hf_gpio.o(.text.gpio_init)
+    [Anonymous Symbol]                       0x080023d6   Section        0  gd32e23x_gpio.o(.text.gpio_input_bit_get)
+    [Anonymous Symbol]                       0x08002400   Section        0  gd32e23x_gpio.o(.text.gpio_mode_set)
+    [Anonymous Symbol]                       0x0800248e   Section        0  gd32e23x_gpio.o(.text.gpio_output_options_set)
+    [Anonymous Symbol]                       0x08002518   Section        0  car_init.o(.text.int_init)
+    [Anonymous Symbol]                       0x0800251c   Section        0  car_4keys.o(.text.key_init)
+    [Anonymous Symbol]                       0x08002588   Section        0  hf_l9110s_2.o(.text.l9110s_backward)
+    [Anonymous Symbol]                       0x080025e0   Section        0  hf_l9110s_2.o(.text.l9110s_forward)
+    [Anonymous Symbol]                       0x08002638   Section        0  hf_l9110s_2.o(.text.l9110s_init)
+    __arm_cp.0_0                             0x080026d4   Number         4  hf_l9110s_2.o(.text.l9110s_init)
+    __arm_cp.0_1                             0x080026d8   Number         4  hf_l9110s_2.o(.text.l9110s_init)
+    __arm_cp.0_2                             0x080026dc   Number         4  hf_l9110s_2.o(.text.l9110s_init)
+    __arm_cp.0_3                             0x080026e0   Number         4  hf_l9110s_2.o(.text.l9110s_init)
+    __arm_cp.0_4                             0x080026e4   Number         4  hf_l9110s_2.o(.text.l9110s_init)
+    __arm_cp.0_5                             0x080026e8   Number         4  hf_l9110s_2.o(.text.l9110s_init)
+    [Anonymous Symbol]                       0x080026ec   Section        0  main.o(.text.main)
+    __arm_cp.8_0                             0x08002afc   Number         4  main.o(.text.main)
+    __arm_cp.8_1                             0x08002b00   Number         4  main.o(.text.main)
+    __arm_cp.8_2                             0x08002b04   Number         4  main.o(.text.main)
+    __arm_cp.8_3                             0x08002b08   Number         4  main.o(.text.main)
+    __arm_cp.8_4                             0x08002b0c   Number         4  main.o(.text.main)
+    __arm_cp.8_5                             0x08002b10   Number         4  main.o(.text.main)
+    __arm_cp.8_6                             0x08002b14   Number         4  main.o(.text.main)
+    __arm_cp.8_7                             0x08002b18   Number         4  main.o(.text.main)
+    __arm_cp.8_8                             0x08002b1c   Number         4  main.o(.text.main)
+    __arm_cp.8_9                             0x08002b20   Number         4  main.o(.text.main)
+    __arm_cp.8_10                            0x08002b24   Number         4  main.o(.text.main)
+    __arm_cp.8_11                            0x08002b28   Number         4  main.o(.text.main)
+    __arm_cp.8_12                            0x08002b2c   Number         4  main.o(.text.main)
+    __arm_cp.8_13                            0x08002b30   Number         4  main.o(.text.main)
+    __arm_cp.8_14                            0x08002b34   Number         4  main.o(.text.main)
+    __arm_cp.8_15                            0x08002b38   Number         4  main.o(.text.main)
+    __arm_cp.8_17                            0x08002b3c   Number         4  main.o(.text.main)
+    __arm_cp.8_18                            0x08002b40   Number         4  main.o(.text.main)
+    __arm_cp.8_19                            0x08002b44   Number         4  main.o(.text.main)
+    __arm_cp.8_20                            0x08002b48   Number         4  main.o(.text.main)
+    __arm_cp.8_21                            0x08002b4c   Number         4  main.o(.text.main)
+    __arm_cp.8_22                            0x08002b50   Number         4  main.o(.text.main)
+    [Anonymous Symbol]                       0x08002b54   Section        0  gd32e23x_misc.o(.text.nvic_irq_enable)
+    [Anonymous Symbol]                       0x08002b80   Section        0  gd32e23x_misc.o(.text.nvic_vector_table_set)
+    __arm_cp.7_0                             0x08002b98   Number         4  gd32e23x_misc.o(.text.nvic_vector_table_set)
+    __arm_cp.7_1                             0x08002b9c   Number         4  gd32e23x_misc.o(.text.nvic_vector_table_set)
+    [Anonymous Symbol]                       0x08002ba0   Section        0  hf_pwm.o(.text.pwm_duty)
+    __arm_cp.2_7                             0x08002c4c   Number         4  hf_pwm.o(.text.pwm_duty)
+    [Anonymous Symbol]                       0x08002c50   Section        0  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_0                             0x08002da0   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_1                             0x08002da4   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_2                             0x08002da8   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_3                             0x08002dac   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_4                             0x08002db0   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_5                             0x08002db4   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_6                             0x08002db8   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_7                             0x08002dbc   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_8                             0x08002dc0   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_9                             0x08002dc4   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_10                            0x08002dc8   Number         4  hf_pwm.o(.text.pwm_init)
+    __arm_cp.0_11                            0x08002dcc   Number         4  hf_pwm.o(.text.pwm_init)
+    [Anonymous Symbol]                       0x08002dd0   Section        0  main.o(.text.pwm_jt)
+    [Anonymous Symbol]                       0x08002dec   Section        0  main.o(.text.pwm_jt1)
+    __arm_cp.2_0                             0x08002e08   Number         4  main.o(.text.pwm_jt1)
+    [Anonymous Symbol]                       0x08002e0c   Section        0  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
+    __arm_cp.14_0                            0x08002f8c   Number         4  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
+    __arm_cp.14_1                            0x08002f90   Number         4  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
+    __arm_cp.14_2                            0x08002f94   Number         4  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
+    [Anonymous Symbol]                       0x08002f98   Section        0  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_0                            0x0800326c   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_1                            0x08003270   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_2                            0x08003274   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_3                            0x08003278   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_4                            0x0800327c   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_5                            0x08003280   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_6                            0x08003284   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_7                            0x08003288   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    __arm_cp.38_8                            0x0800328c   Number         4  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    [Anonymous Symbol]                       0x08003290   Section        0  gd32e23x_rcu.o(.text.rcu_periph_clock_enable)
+    [Anonymous Symbol]                       0x080032b4   Section        0  gd32e23x_rcu.o(.text.rcu_periph_reset_disable)
+    [Anonymous Symbol]                       0x080032d8   Section        0  gd32e23x_rcu.o(.text.rcu_periph_reset_enable)
+    [Anonymous Symbol]                       0x080032fc   Section        0  car_reed.o(.text.reed_check)
+    __arm_cp.1_0                             0x08003320   Number         4  car_reed.o(.text.reed_check)
+    [Anonymous Symbol]                       0x08003324   Section        0  car_reed.o(.text.reed_init)
+    [Anonymous Symbol]                       0x08003336   Section        0  main.o(.text.ren1)
+    [Anonymous Symbol]                       0x08003356   Section        0  main.o(.text.ren3)
+    [Anonymous Symbol]                       0x0800337c   Section        0  main.o(.text.ren4)
+    [Anonymous Symbol]                       0x08003420   Section        0  main.o(.text.ren5)
+    [Anonymous Symbol]                       0x08003448   Section        0  main.o(.text.ren6)
+    __arm_cp.7_0                             0x080034ec   Number         4  main.o(.text.ren6)
+    [Anonymous Symbol]                       0x080034f0   Section        0  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
+    __arm_cp.5_0                             0x08003594   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
+    __arm_cp.5_1                             0x08003598   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
+    __arm_cp.5_2                             0x0800359c   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
+    __arm_cp.5_3                             0x080035a0   Number         4  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
+    system_clock_72m_hxtal                   0x080035a5   Thumb Code   208  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    [Anonymous Symbol]                       0x080035a4   Section        0  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    __arm_cp.3_0                             0x08003674   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    __arm_cp.3_1                             0x08003678   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    __arm_cp.3_2                             0x0800367c   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    __arm_cp.3_3                             0x08003680   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    __arm_cp.3_4                             0x08003684   Number         4  system_gd32e23x.o(.text.system_clock_72m_hxtal)
+    system_clock_config                      0x08003689   Thumb Code     8  system_gd32e23x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x08003688   Section        0  system_gd32e23x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x08003690   Section        0  gd32e23x_misc.o(.text.systick_clksource_set)
+    __arm_cp.10_0                            0x080036b8   Number         4  gd32e23x_misc.o(.text.systick_clksource_set)
+    [Anonymous Symbol]                       0x080036bc   Section        0  hf_systick.o(.text.systick_config)
+    __arm_cp.0_0                             0x080036e8   Number         4  hf_systick.o(.text.systick_config)
+    __arm_cp.0_1                             0x080036ec   Number         4  hf_systick.o(.text.systick_config)
+    __arm_cp.0_2                             0x080036f0   Number         4  hf_systick.o(.text.systick_config)
+    __arm_cp.0_3                             0x080036f4   Number         4  hf_systick.o(.text.systick_config)
+    __arm_cp.0_4                             0x080036f8   Number         4  hf_systick.o(.text.systick_config)
+    [Anonymous Symbol]                       0x080036fc   Section        0  gd32e23x_timer.o(.text.timer_auto_reload_shadow_enable)
+    [Anonymous Symbol]                       0x08003710   Section        0  gd32e23x_timer.o(.text.timer_channel_output_config)
+    __arm_cp.42_0                            0x080039f4   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
+    __arm_cp.42_1                            0x080039f8   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
+    __arm_cp.42_2                            0x080039fc   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
+    __arm_cp.42_3                            0x08003a00   Number         4  gd32e23x_timer.o(.text.timer_channel_output_config)
+    [Anonymous Symbol]                       0x08003a04   Section        0  gd32e23x_timer.o(.text.timer_channel_output_mode_config)
+    [Anonymous Symbol]                       0x08003aa4   Section        0  gd32e23x_timer.o(.text.timer_channel_output_pulse_value_config)
+    [Anonymous Symbol]                       0x08003af8   Section        0  gd32e23x_timer.o(.text.timer_channel_output_shadow_config)
+    [Anonymous Symbol]                       0x08003b96   Section        0  gd32e23x_timer.o(.text.timer_counter_read)
+    [Anonymous Symbol]                       0x08003baa   Section        0  gd32e23x_timer.o(.text.timer_counter_value_config)
+    [Anonymous Symbol]                       0x08003bbc   Section        0  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_1                             0x08003c84   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_3                             0x08003c88   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_4                             0x08003c8c   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_7                             0x08003c90   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_8                             0x08003c94   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_9                             0x08003c98   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_10                            0x08003c9c   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    __arm_cp.0_11                            0x08003ca0   Number         4  gd32e23x_timer.o(.text.timer_deinit)
+    [Anonymous Symbol]                       0x08003ca4   Section        0  gd32e23x_timer.o(.text.timer_disable)
+    [Anonymous Symbol]                       0x08003cb6   Section        0  gd32e23x_timer.o(.text.timer_enable)
+    [Anonymous Symbol]                       0x08003cc8   Section        0  gd32e23x_timer.o(.text.timer_flag_clear)
+    [Anonymous Symbol]                       0x08003cda   Section        0  gd32e23x_timer.o(.text.timer_flag_get)
+    [Anonymous Symbol]                       0x08003d04   Section        0  gd32e23x_timer.o(.text.timer_init)
+    __arm_cp.2_0                             0x08003de8   Number         4  gd32e23x_timer.o(.text.timer_init)
+    __arm_cp.2_1                             0x08003dec   Number         4  gd32e23x_timer.o(.text.timer_init)
+    __arm_cp.2_2                             0x08003df0   Number         4  gd32e23x_timer.o(.text.timer_init)
+    __arm_cp.2_3                             0x08003df4   Number         4  gd32e23x_timer.o(.text.timer_init)
+    __arm_cp.2_4                             0x08003df8   Number         4  gd32e23x_timer.o(.text.timer_init)
+    __arm_cp.2_5                             0x08003dfc   Number         4  gd32e23x_timer.o(.text.timer_init)
+    [Anonymous Symbol]                       0x08003e00   Section        0  gd32e23x_timer.o(.text.timer_interrupt_enable)
+    [Anonymous Symbol]                       0x08003e14   Section        0  gd32e23x_timer.o(.text.timer_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08003e26   Section        0  gd32e23x_timer.o(.text.timer_primary_output_config)
+    [Anonymous Symbol]                       0x08003e58   Section        0  hf_tm1637.o(.text.tm1637_init)
+    [Anonymous Symbol]                       0x08003e78   Section        0  car_uart.o(.text.uart0_init)
+    [Anonymous Symbol]                       0x08003ea0   Section        0  hf_uart.o(.text.uart_init)
+    __arm_cp.0_1                             0x08004054   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_2                             0x08004058   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_3                             0x0800405c   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_4                             0x08004060   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_5                             0x08004064   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_6                             0x08004068   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_9                             0x0800406c   Number         4  hf_uart.o(.text.uart_init)
+    __arm_cp.0_10                            0x08004070   Number         4  hf_uart.o(.text.uart_init)
+    [Anonymous Symbol]                       0x08004074   Section        0  hf_hc-sr04.o(.text.ultra_get_distance)
+    __arm_cp.1_4                             0x08004130   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
+    __arm_cp.1_5                             0x08004134   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
+    __arm_cp.1_6                             0x08004138   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
+    __arm_cp.1_7                             0x0800413c   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
+    __arm_cp.1_8                             0x08004140   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
+    __arm_cp.1_9                             0x08004144   Number         4  hf_hc-sr04.o(.text.ultra_get_distance)
+    [Anonymous Symbol]                       0x08004148   Section        0  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_0                             0x080041fc   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_1                             0x08004200   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_2                             0x08004204   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_3                             0x08004208   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_4                             0x0800420c   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_5                             0x08004210   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    __arm_cp.0_6                             0x08004214   Number         4  hf_hc-sr04.o(.text.ultra_init)
+    [Anonymous Symbol]                       0x08004218   Section        0  gd32e23x_usart.o(.text.usart_baudrate_set)
+    __arm_cp.1_2                             0x080042c4   Number         4  gd32e23x_usart.o(.text.usart_baudrate_set)
+    [Anonymous Symbol]                       0x080042c8   Section        0  gd32e23x_usart.o(.text.usart_deinit)
+    __arm_cp.0_0                             0x0800430c   Number         4  gd32e23x_usart.o(.text.usart_deinit)
+    __arm_cp.0_1                             0x08004310   Number         4  gd32e23x_usart.o(.text.usart_deinit)
+    __arm_cp.0_2                             0x08004314   Number         4  gd32e23x_usart.o(.text.usart_deinit)
+    __arm_cp.0_3                             0x08004318   Number         4  gd32e23x_usart.o(.text.usart_deinit)
+    [Anonymous Symbol]                       0x0800431c   Section        0  gd32e23x_usart.o(.text.usart_enable)
+    [Anonymous Symbol]                       0x0800432e   Section        0  gd32e23x_usart.o(.text.usart_receive_config)
+    [Anonymous Symbol]                       0x0800434c   Section        0  gd32e23x_usart.o(.text.usart_transmit_config)
+    [Anonymous Symbol]                       0x0800436c   Section        0  hf_ws2812b.o(.text.ws2812b_init)
+    __arm_cp.0_0                             0x0800438c   Number         4  hf_ws2812b.o(.text.ws2812b_init)
+    [Anonymous Symbol]                       0x08004390   Section        0  hf_ws2812b.o(.text.ws2812b_write)
+    __arm_cp.1_0                             0x08004430   Number         4  hf_ws2812b.o(.text.ws2812b_write)
+    __arm_cp.1_1                             0x08004434   Number         4  hf_ws2812b.o(.text.ws2812b_write)
+    i.__ARM_clz                              0x08004438   Section        0  depilogue.o(i.__ARM_clz)
+    i.__scatterload_copy                     0x08004466   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08004474   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08004476   Section       14  handlers.o(i.__scatterload_zeroinit)
     rgb_blue                                 0x20000004   Data           3  car_light.o(.data.rgb_blue)
     [Anonymous Symbol]                       0x20000004   Section        0  car_light.o(.data.rgb_blue)
     rgb_cyan                                 0x20000007   Data           3  car_light.o(.data.rgb_cyan)
@@ -2965,86 +2978,89 @@ Image Symbol Table
     car_both_rgb_flash                       0x08001231   Thumb Code   640  car_light.o(.text.car_both_rgb_flash)
     car_both_rgb_off                         0x080014b1   Thumb Code    28  car_light.o(.text.car_both_rgb_off)
     car_both_rgb_on                          0x080014d1   Thumb Code   272  car_light.o(.text.car_both_rgb_on)
-    car_init                                 0x08001601   Thumb Code   120  car_init.o(.text.car_init)
-    car_left_rgb_flash                       0x0800167d   Thumb Code   624  car_light.o(.text.car_left_rgb_flash)
-    car_right_rgb_flash                      0x08001911   Thumb Code   624  car_light.o(.text.car_right_rgb_flash)
-    car_stop                                 0x08001ba5   Thumb Code    26  car_motion.o(.text.car_stop)
-    car_turnleft1                            0x08001bc1   Thumb Code    28  car_motion.o(.text.car_turnleft1)
-    car_turnright1                           0x08001bdd   Thumb Code    28  car_motion.o(.text.car_turnright1)
-    delay_1ms                                0x08001bfd   Thumb Code   112  hf_systick.o(.text.delay_1ms)
-    delay_1us                                0x08001c71   Thumb Code   112  hf_systick.o(.text.delay_1us)
-    exti_init                                0x08001cf1   Thumb Code   208  gd32e23x_exti.o(.text.exti_init)
-    exti_interrupt_enable                    0x08001dcd   Thumb Code    20  gd32e23x_exti.o(.text.exti_interrupt_enable)
-    exti_interrupt_flag_clear                0x08001de1   Thumb Code    16  gd32e23x_exti.o(.text.exti_interrupt_flag_clear)
-    exti_interrupt_flag_get                  0x08001df1   Thumb Code    60  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
-    gpio_af_set                              0x08001e35   Thumb Code   192  gd32e23x_gpio.o(.text.gpio_af_set)
-    gpio_bit_output                          0x08001ef5   Thumb Code    42  hf_gpio.o(.text.gpio_bit_output)
-    gpio_bit_reset                           0x08001f1f   Thumb Code    16  gd32e23x_gpio.o(.text.gpio_bit_reset)
-    gpio_bit_set                             0x08001f2f   Thumb Code    16  gd32e23x_gpio.o(.text.gpio_bit_set)
-    gpio_get_input                           0x08001f3f   Thumb Code    44  hf_gpio.o(.text.gpio_get_input)
-    gpio_init                                0x08001f6d   Thumb Code  1098  hf_gpio.o(.text.gpio_init)
-    gpio_input_bit_get                       0x080023b7   Thumb Code    42  gd32e23x_gpio.o(.text.gpio_input_bit_get)
-    gpio_mode_set                            0x080023e1   Thumb Code   142  gd32e23x_gpio.o(.text.gpio_mode_set)
-    gpio_output_options_set                  0x0800246f   Thumb Code   138  gd32e23x_gpio.o(.text.gpio_output_options_set)
-    int_init                                 0x080024f9   Thumb Code     2  car_init.o(.text.int_init)
-    key_init                                 0x080024fd   Thumb Code   108  car_4keys.o(.text.key_init)
-    l9110s_backward                          0x08002569   Thumb Code    88  hf_l9110s_2.o(.text.l9110s_backward)
-    l9110s_forward                           0x080025c1   Thumb Code    88  hf_l9110s_2.o(.text.l9110s_forward)
-    l9110s_init                              0x08002619   Thumb Code   156  hf_l9110s_2.o(.text.l9110s_init)
-    main                                     0x080026cd   Thumb Code   824  main.o(.text.main)
-    nvic_irq_enable                          0x08002a55   Thumb Code    42  gd32e23x_misc.o(.text.nvic_irq_enable)
-    nvic_vector_table_set                    0x08002a81   Thumb Code    24  gd32e23x_misc.o(.text.nvic_vector_table_set)
-    pwm_duty                                 0x08002aa1   Thumb Code   172  hf_pwm.o(.text.pwm_duty)
-    pwm_init                                 0x08002b51   Thumb Code   336  hf_pwm.o(.text.pwm_init)
-    pwm_jt                                   0x08002cd1   Thumb Code    28  main.o(.text.pwm_jt)
-    pwm_jt1                                  0x08002ced   Thumb Code    28  main.o(.text.pwm_jt1)
-    rcu_adc_clock_config                     0x08002d0d   Thumb Code   384  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
-    rcu_clock_freq_get                       0x08002e99   Thumb Code   724  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
-    rcu_periph_clock_enable                  0x08003191   Thumb Code    36  gd32e23x_rcu.o(.text.rcu_periph_clock_enable)
-    rcu_periph_reset_disable                 0x080031b5   Thumb Code    36  gd32e23x_rcu.o(.text.rcu_periph_reset_disable)
-    rcu_periph_reset_enable                  0x080031d9   Thumb Code    36  gd32e23x_rcu.o(.text.rcu_periph_reset_enable)
-    reed_check                               0x080031fd   Thumb Code    36  car_reed.o(.text.reed_check)
-    reed_init                                0x08003225   Thumb Code    18  car_reed.o(.text.reed_init)
-    ren1                                     0x08003237   Thumb Code    32  main.o(.text.ren1)
-    ren3                                     0x08003257   Thumb Code    38  main.o(.text.ren3)
-    ren5                                     0x0800327d   Thumb Code    38  main.o(.text.ren5)
-    syscfg_exti_line_config                  0x080032a5   Thumb Code   164  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
-    systick_clksource_set                    0x08003445   Thumb Code    40  gd32e23x_misc.o(.text.systick_clksource_set)
-    systick_config                           0x08003471   Thumb Code    44  hf_systick.o(.text.systick_config)
-    timer_auto_reload_shadow_enable          0x080034b1   Thumb Code    18  gd32e23x_timer.o(.text.timer_auto_reload_shadow_enable)
-    timer_channel_output_config              0x080034c5   Thumb Code   740  gd32e23x_timer.o(.text.timer_channel_output_config)
-    timer_channel_output_mode_config         0x080037b9   Thumb Code   158  gd32e23x_timer.o(.text.timer_channel_output_mode_config)
-    timer_channel_output_pulse_value_config  0x08003859   Thumb Code    82  gd32e23x_timer.o(.text.timer_channel_output_pulse_value_config)
-    timer_channel_output_shadow_config       0x080038ad   Thumb Code   158  gd32e23x_timer.o(.text.timer_channel_output_shadow_config)
-    timer_counter_read                       0x0800394b   Thumb Code    20  gd32e23x_timer.o(.text.timer_counter_read)
-    timer_counter_value_config               0x0800395f   Thumb Code    18  gd32e23x_timer.o(.text.timer_counter_value_config)
-    timer_deinit                             0x08003971   Thumb Code   200  gd32e23x_timer.o(.text.timer_deinit)
-    timer_disable                            0x08003a59   Thumb Code    18  gd32e23x_timer.o(.text.timer_disable)
-    timer_enable                             0x08003a6b   Thumb Code    18  gd32e23x_timer.o(.text.timer_enable)
-    timer_flag_clear                         0x08003a7d   Thumb Code    18  gd32e23x_timer.o(.text.timer_flag_clear)
-    timer_flag_get                           0x08003a8f   Thumb Code    42  gd32e23x_timer.o(.text.timer_flag_get)
-    timer_init                               0x08003ab9   Thumb Code   228  gd32e23x_timer.o(.text.timer_init)
-    timer_interrupt_enable                   0x08003bb5   Thumb Code    20  gd32e23x_timer.o(.text.timer_interrupt_enable)
-    timer_interrupt_flag_clear               0x08003bc9   Thumb Code    18  gd32e23x_timer.o(.text.timer_interrupt_flag_clear)
-    timer_primary_output_config              0x08003bdb   Thumb Code    48  gd32e23x_timer.o(.text.timer_primary_output_config)
-    tm1637_init                              0x08003c0d   Thumb Code    32  hf_tm1637.o(.text.tm1637_init)
-    uart0_init                               0x08003c2d   Thumb Code    38  car_uart.o(.text.uart0_init)
-    uart_init                                0x08003c55   Thumb Code   436  hf_uart.o(.text.uart_init)
-    ultra_get_distance                       0x08003e29   Thumb Code   188  hf_hc-sr04.o(.text.ultra_get_distance)
-    ultra_init                               0x08003efd   Thumb Code   180  hf_hc-sr04.o(.text.ultra_init)
-    usart_baudrate_set                       0x08003fcd   Thumb Code   172  gd32e23x_usart.o(.text.usart_baudrate_set)
-    usart_deinit                             0x0800407d   Thumb Code    68  gd32e23x_usart.o(.text.usart_deinit)
-    usart_enable                             0x080040d1   Thumb Code    18  gd32e23x_usart.o(.text.usart_enable)
-    usart_receive_config                     0x080040e3   Thumb Code    30  gd32e23x_usart.o(.text.usart_receive_config)
-    usart_transmit_config                    0x08004101   Thumb Code    30  gd32e23x_usart.o(.text.usart_transmit_config)
-    ws2812b_init                             0x08004121   Thumb Code    32  hf_ws2812b.o(.text.ws2812b_init)
-    ws2812b_write                            0x08004145   Thumb Code   160  hf_ws2812b.o(.text.ws2812b_write)
-    __ARM_clz                                0x080041ed   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __scatterload_copy                       0x0800421b   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08004229   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800422b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x08004238   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08004258   Number         0  anon$$obj.o(Region$$Table)
+    car_forward                              0x08001601   Thumb Code    28  car_motion.o(.text.car_forward)
+    car_init                                 0x08001621   Thumb Code   120  car_init.o(.text.car_init)
+    car_left_rgb_flash                       0x0800169d   Thumb Code   624  car_light.o(.text.car_left_rgb_flash)
+    car_right_rgb_flash                      0x08001931   Thumb Code   624  car_light.o(.text.car_right_rgb_flash)
+    car_stop                                 0x08001bc5   Thumb Code    26  car_motion.o(.text.car_stop)
+    car_turnleft1                            0x08001be1   Thumb Code    28  car_motion.o(.text.car_turnleft1)
+    car_turnright1                           0x08001bfd   Thumb Code    28  car_motion.o(.text.car_turnright1)
+    delay_1ms                                0x08001c1d   Thumb Code   112  hf_systick.o(.text.delay_1ms)
+    delay_1us                                0x08001c91   Thumb Code   112  hf_systick.o(.text.delay_1us)
+    exti_init                                0x08001d11   Thumb Code   208  gd32e23x_exti.o(.text.exti_init)
+    exti_interrupt_enable                    0x08001ded   Thumb Code    20  gd32e23x_exti.o(.text.exti_interrupt_enable)
+    exti_interrupt_flag_clear                0x08001e01   Thumb Code    16  gd32e23x_exti.o(.text.exti_interrupt_flag_clear)
+    exti_interrupt_flag_get                  0x08001e11   Thumb Code    60  gd32e23x_exti.o(.text.exti_interrupt_flag_get)
+    gpio_af_set                              0x08001e55   Thumb Code   192  gd32e23x_gpio.o(.text.gpio_af_set)
+    gpio_bit_output                          0x08001f15   Thumb Code    42  hf_gpio.o(.text.gpio_bit_output)
+    gpio_bit_reset                           0x08001f3f   Thumb Code    16  gd32e23x_gpio.o(.text.gpio_bit_reset)
+    gpio_bit_set                             0x08001f4f   Thumb Code    16  gd32e23x_gpio.o(.text.gpio_bit_set)
+    gpio_get_input                           0x08001f5f   Thumb Code    44  hf_gpio.o(.text.gpio_get_input)
+    gpio_init                                0x08001f8d   Thumb Code  1098  hf_gpio.o(.text.gpio_init)
+    gpio_input_bit_get                       0x080023d7   Thumb Code    42  gd32e23x_gpio.o(.text.gpio_input_bit_get)
+    gpio_mode_set                            0x08002401   Thumb Code   142  gd32e23x_gpio.o(.text.gpio_mode_set)
+    gpio_output_options_set                  0x0800248f   Thumb Code   138  gd32e23x_gpio.o(.text.gpio_output_options_set)
+    int_init                                 0x08002519   Thumb Code     2  car_init.o(.text.int_init)
+    key_init                                 0x0800251d   Thumb Code   108  car_4keys.o(.text.key_init)
+    l9110s_backward                          0x08002589   Thumb Code    88  hf_l9110s_2.o(.text.l9110s_backward)
+    l9110s_forward                           0x080025e1   Thumb Code    88  hf_l9110s_2.o(.text.l9110s_forward)
+    l9110s_init                              0x08002639   Thumb Code   156  hf_l9110s_2.o(.text.l9110s_init)
+    main                                     0x080026ed   Thumb Code  1040  main.o(.text.main)
+    nvic_irq_enable                          0x08002b55   Thumb Code    42  gd32e23x_misc.o(.text.nvic_irq_enable)
+    nvic_vector_table_set                    0x08002b81   Thumb Code    24  gd32e23x_misc.o(.text.nvic_vector_table_set)
+    pwm_duty                                 0x08002ba1   Thumb Code   172  hf_pwm.o(.text.pwm_duty)
+    pwm_init                                 0x08002c51   Thumb Code   336  hf_pwm.o(.text.pwm_init)
+    pwm_jt                                   0x08002dd1   Thumb Code    28  main.o(.text.pwm_jt)
+    pwm_jt1                                  0x08002ded   Thumb Code    28  main.o(.text.pwm_jt1)
+    rcu_adc_clock_config                     0x08002e0d   Thumb Code   384  gd32e23x_rcu.o(.text.rcu_adc_clock_config)
+    rcu_clock_freq_get                       0x08002f99   Thumb Code   724  gd32e23x_rcu.o(.text.rcu_clock_freq_get)
+    rcu_periph_clock_enable                  0x08003291   Thumb Code    36  gd32e23x_rcu.o(.text.rcu_periph_clock_enable)
+    rcu_periph_reset_disable                 0x080032b5   Thumb Code    36  gd32e23x_rcu.o(.text.rcu_periph_reset_disable)
+    rcu_periph_reset_enable                  0x080032d9   Thumb Code    36  gd32e23x_rcu.o(.text.rcu_periph_reset_enable)
+    reed_check                               0x080032fd   Thumb Code    36  car_reed.o(.text.reed_check)
+    reed_init                                0x08003325   Thumb Code    18  car_reed.o(.text.reed_init)
+    ren1                                     0x08003337   Thumb Code    32  main.o(.text.ren1)
+    ren3                                     0x08003357   Thumb Code    38  main.o(.text.ren3)
+    ren4                                     0x0800337d   Thumb Code   164  main.o(.text.ren4)
+    ren5                                     0x08003421   Thumb Code    38  main.o(.text.ren5)
+    ren6                                     0x08003449   Thumb Code   164  main.o(.text.ren6)
+    syscfg_exti_line_config                  0x080034f1   Thumb Code   164  gd32e23x_syscfg.o(.text.syscfg_exti_line_config)
+    systick_clksource_set                    0x08003691   Thumb Code    40  gd32e23x_misc.o(.text.systick_clksource_set)
+    systick_config                           0x080036bd   Thumb Code    44  hf_systick.o(.text.systick_config)
+    timer_auto_reload_shadow_enable          0x080036fd   Thumb Code    18  gd32e23x_timer.o(.text.timer_auto_reload_shadow_enable)
+    timer_channel_output_config              0x08003711   Thumb Code   740  gd32e23x_timer.o(.text.timer_channel_output_config)
+    timer_channel_output_mode_config         0x08003a05   Thumb Code   158  gd32e23x_timer.o(.text.timer_channel_output_mode_config)
+    timer_channel_output_pulse_value_config  0x08003aa5   Thumb Code    82  gd32e23x_timer.o(.text.timer_channel_output_pulse_value_config)
+    timer_channel_output_shadow_config       0x08003af9   Thumb Code   158  gd32e23x_timer.o(.text.timer_channel_output_shadow_config)
+    timer_counter_read                       0x08003b97   Thumb Code    20  gd32e23x_timer.o(.text.timer_counter_read)
+    timer_counter_value_config               0x08003bab   Thumb Code    18  gd32e23x_timer.o(.text.timer_counter_value_config)
+    timer_deinit                             0x08003bbd   Thumb Code   200  gd32e23x_timer.o(.text.timer_deinit)
+    timer_disable                            0x08003ca5   Thumb Code    18  gd32e23x_timer.o(.text.timer_disable)
+    timer_enable                             0x08003cb7   Thumb Code    18  gd32e23x_timer.o(.text.timer_enable)
+    timer_flag_clear                         0x08003cc9   Thumb Code    18  gd32e23x_timer.o(.text.timer_flag_clear)
+    timer_flag_get                           0x08003cdb   Thumb Code    42  gd32e23x_timer.o(.text.timer_flag_get)
+    timer_init                               0x08003d05   Thumb Code   228  gd32e23x_timer.o(.text.timer_init)
+    timer_interrupt_enable                   0x08003e01   Thumb Code    20  gd32e23x_timer.o(.text.timer_interrupt_enable)
+    timer_interrupt_flag_clear               0x08003e15   Thumb Code    18  gd32e23x_timer.o(.text.timer_interrupt_flag_clear)
+    timer_primary_output_config              0x08003e27   Thumb Code    48  gd32e23x_timer.o(.text.timer_primary_output_config)
+    tm1637_init                              0x08003e59   Thumb Code    32  hf_tm1637.o(.text.tm1637_init)
+    uart0_init                               0x08003e79   Thumb Code    38  car_uart.o(.text.uart0_init)
+    uart_init                                0x08003ea1   Thumb Code   436  hf_uart.o(.text.uart_init)
+    ultra_get_distance                       0x08004075   Thumb Code   188  hf_hc-sr04.o(.text.ultra_get_distance)
+    ultra_init                               0x08004149   Thumb Code   180  hf_hc-sr04.o(.text.ultra_init)
+    usart_baudrate_set                       0x08004219   Thumb Code   172  gd32e23x_usart.o(.text.usart_baudrate_set)
+    usart_deinit                             0x080042c9   Thumb Code    68  gd32e23x_usart.o(.text.usart_deinit)
+    usart_enable                             0x0800431d   Thumb Code    18  gd32e23x_usart.o(.text.usart_enable)
+    usart_receive_config                     0x0800432f   Thumb Code    30  gd32e23x_usart.o(.text.usart_receive_config)
+    usart_transmit_config                    0x0800434d   Thumb Code    30  gd32e23x_usart.o(.text.usart_transmit_config)
+    ws2812b_init                             0x0800436d   Thumb Code    32  hf_ws2812b.o(.text.ws2812b_init)
+    ws2812b_write                            0x08004391   Thumb Code   160  hf_ws2812b.o(.text.ws2812b_write)
+    __ARM_clz                                0x08004439   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __scatterload_copy                       0x08004467   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08004475   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08004477   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x08004484   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080044a4   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_gd32e23x.o(.data.SystemCoreClock)
     g_current_time_value                     0x2000002c   Data           4  hf_hc-sr04.o(.bss.g_current_time_value)
     g_flag_unhandler                         0x20000030   Data           1  hf_hc-sr04.o(.bss.g_flag_unhandler)
@@ -3061,9 +3077,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000cd
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004278, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000044c8, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00004258, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000044a4, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3147,127 +3163,130 @@ Memory Map of the image
     0x08001230   0x08001230   0x00000280   Code   RO          131    .text.car_both_rgb_flash  car_light.o
     0x080014b0   0x080014b0   0x00000020   Code   RO          127    .text.car_both_rgb_off  car_light.o
     0x080014d0   0x080014d0   0x00000130   Code   RO          123    .text.car_both_rgb_on  car_light.o
-    0x08001600   0x08001600   0x0000007c   Code   RO           91    .text.car_init      car_init.o
-    0x0800167c   0x0800167c   0x00000294   Code   RO          125    .text.car_left_rgb_flash  car_light.o
-    0x08001910   0x08001910   0x00000294   Code   RO          129    .text.car_right_rgb_flash  car_light.o
-    0x08001ba4   0x08001ba4   0x0000001a   Code   RO          106    .text.car_stop      car_motion.o
-    0x08001bbe   0x08001bbe   0x00000002   PAD
-    0x08001bc0   0x08001bc0   0x0000001c   Code   RO          114    .text.car_turnleft1  car_motion.o
-    0x08001bdc   0x08001bdc   0x00000020   Code   RO          112    .text.car_turnright1  car_motion.o
-    0x08001bfc   0x08001bfc   0x00000074   Code   RO          407    .text.delay_1ms     hf_systick.o
-    0x08001c70   0x08001c70   0x00000080   Code   RO          405    .text.delay_1us     hf_systick.o
-    0x08001cf0   0x08001cf0   0x000000dc   Code   RO          716    .text.exti_init     gd32e23x_exti.o
-    0x08001dcc   0x08001dcc   0x00000014   Code   RO          718    .text.exti_interrupt_enable  gd32e23x_exti.o
-    0x08001de0   0x08001de0   0x00000010   Code   RO          736    .text.exti_interrupt_flag_clear  gd32e23x_exti.o
-    0x08001df0   0x08001df0   0x00000044   Code   RO          734    .text.exti_interrupt_flag_get  gd32e23x_exti.o
-    0x08001e34   0x08001e34   0x000000c0   Code   RO          859    .text.gpio_af_set   gd32e23x_gpio.o
-    0x08001ef4   0x08001ef4   0x0000002a   Code   RO          289    .text.gpio_bit_output  hf_gpio.o
-    0x08001f1e   0x08001f1e   0x00000010   Code   RO          845    .text.gpio_bit_reset  gd32e23x_gpio.o
-    0x08001f2e   0x08001f2e   0x00000010   Code   RO          843    .text.gpio_bit_set  gd32e23x_gpio.o
-    0x08001f3e   0x08001f3e   0x0000002c   Code   RO          293    .text.gpio_get_input  hf_gpio.o
-    0x08001f6a   0x08001f6a   0x00000002   PAD
-    0x08001f6c   0x08001f6c   0x0000044a   Code   RO          287    .text.gpio_init     hf_gpio.o
-    0x080023b6   0x080023b6   0x0000002a   Code   RO          851    .text.gpio_input_bit_get  gd32e23x_gpio.o
-    0x080023e0   0x080023e0   0x0000008e   Code   RO          839    .text.gpio_mode_set  gd32e23x_gpio.o
-    0x0800246e   0x0800246e   0x0000008a   Code   RO          841    .text.gpio_output_options_set  gd32e23x_gpio.o
-    0x080024f8   0x080024f8   0x00000002   Code   RO           93    .text.int_init      car_init.o
-    0x080024fa   0x080024fa   0x00000002   PAD
-    0x080024fc   0x080024fc   0x0000006c   Code   RO          177    .text.key_init      car_4keys.o
-    0x08002568   0x08002568   0x00000058   Code   RO          445    .text.l9110s_backward  hf_l9110s_2.o
-    0x080025c0   0x080025c0   0x00000058   Code   RO          443    .text.l9110s_forward  hf_l9110s_2.o
-    0x08002618   0x08002618   0x000000b4   Code   RO          441    .text.l9110s_init   hf_l9110s_2.o
-    0x080026cc   0x080026cc   0x00000388   Code   RO           66    .text.main          main.o
-    0x08002a54   0x08002a54   0x0000002a   Code   RO          951    .text.nvic_irq_enable  gd32e23x_misc.o
-    0x08002a7e   0x08002a7e   0x00000002   PAD
-    0x08002a80   0x08002a80   0x00000020   Code   RO          965    .text.nvic_vector_table_set  gd32e23x_misc.o
-    0x08002aa0   0x08002aa0   0x000000b0   Code   RO          369    .text.pwm_duty      hf_pwm.o
-    0x08002b50   0x08002b50   0x00000180   Code   RO          365    .text.pwm_init      hf_pwm.o
-    0x08002cd0   0x08002cd0   0x0000001c   Code   RO           52    .text.pwm_jt        main.o
-    0x08002cec   0x08002cec   0x00000020   Code   RO           54    .text.pwm_jt1       main.o
-    0x08002d0c   0x08002d0c   0x0000018c   Code   RO         1041    .text.rcu_adc_clock_config  gd32e23x_rcu.o
-    0x08002e98   0x08002e98   0x000002f8   Code   RO         1089    .text.rcu_clock_freq_get  gd32e23x_rcu.o
-    0x08003190   0x08003190   0x00000024   Code   RO         1015    .text.rcu_periph_clock_enable  gd32e23x_rcu.o
-    0x080031b4   0x080031b4   0x00000024   Code   RO         1025    .text.rcu_periph_reset_disable  gd32e23x_rcu.o
-    0x080031d8   0x080031d8   0x00000024   Code   RO         1023    .text.rcu_periph_reset_enable  gd32e23x_rcu.o
-    0x080031fc   0x080031fc   0x00000028   Code   RO          203    .text.reed_check    car_reed.o
-    0x08003224   0x08003224   0x00000012   Code   RO          201    .text.reed_init     car_reed.o
-    0x08003236   0x08003236   0x00000020   Code   RO           56    .text.ren1          main.o
-    0x08003256   0x08003256   0x00000026   Code   RO           58    .text.ren3          main.o
-    0x0800327c   0x0800327c   0x00000026   Code   RO           62    .text.ren5          main.o
-    0x080032a2   0x080032a2   0x00000002   PAD
-    0x080032a4   0x080032a4   0x000000b4   Code   RO         1274    .text.syscfg_exti_line_config  gd32e23x_syscfg.o
-    0x08003358   0x08003358   0x000000e4   Code   RO          230    .text.system_clock_72m_hxtal  system_gd32e23x.o
-    0x0800343c   0x0800343c   0x00000008   Code   RO          226    .text.system_clock_config  system_gd32e23x.o
-    0x08003444   0x08003444   0x0000002c   Code   RO          971    .text.systick_clksource_set  gd32e23x_misc.o
-    0x08003470   0x08003470   0x00000040   Code   RO          403    .text.systick_config  hf_systick.o
-    0x080034b0   0x080034b0   0x00000012   Code   RO         1301    .text.timer_auto_reload_shadow_enable  gd32e23x_timer.o
-    0x080034c2   0x080034c2   0x00000002   PAD
-    0x080034c4   0x080034c4   0x000002f4   Code   RO         1375    .text.timer_channel_output_config  gd32e23x_timer.o
-    0x080037b8   0x080037b8   0x0000009e   Code   RO         1377    .text.timer_channel_output_mode_config  gd32e23x_timer.o
-    0x08003856   0x08003856   0x00000002   PAD
-    0x08003858   0x08003858   0x00000052   Code   RO         1379    .text.timer_channel_output_pulse_value_config  gd32e23x_timer.o
-    0x080038aa   0x080038aa   0x00000002   PAD
-    0x080038ac   0x080038ac   0x0000009e   Code   RO         1381    .text.timer_channel_output_shadow_config  gd32e23x_timer.o
-    0x0800394a   0x0800394a   0x00000014   Code   RO         1323    .text.timer_counter_read  gd32e23x_timer.o
-    0x0800395e   0x0800395e   0x00000012   Code   RO         1321    .text.timer_counter_value_config  gd32e23x_timer.o
-    0x08003970   0x08003970   0x000000e8   Code   RO         1291    .text.timer_deinit  gd32e23x_timer.o
-    0x08003a58   0x08003a58   0x00000012   Code   RO         1299    .text.timer_disable  gd32e23x_timer.o
-    0x08003a6a   0x08003a6a   0x00000012   Code   RO         1297    .text.timer_enable  gd32e23x_timer.o
-    0x08003a7c   0x08003a7c   0x00000012   Code   RO         1343    .text.timer_flag_clear  gd32e23x_timer.o
-    0x08003a8e   0x08003a8e   0x0000002a   Code   RO         1341    .text.timer_flag_get  gd32e23x_timer.o
-    0x08003ab8   0x08003ab8   0x000000fc   Code   RO         1295    .text.timer_init    gd32e23x_timer.o
-    0x08003bb4   0x08003bb4   0x00000014   Code   RO         1333    .text.timer_interrupt_enable  gd32e23x_timer.o
-    0x08003bc8   0x08003bc8   0x00000012   Code   RO         1339    .text.timer_interrupt_flag_clear  gd32e23x_timer.o
-    0x08003bda   0x08003bda   0x00000030   Code   RO         1367    .text.timer_primary_output_config  gd32e23x_timer.o
-    0x08003c0a   0x08003c0a   0x00000002   PAD
-    0x08003c0c   0x08003c0c   0x00000020   Code   RO          479    .text.tm1637_init   hf_tm1637.o
-    0x08003c2c   0x08003c2c   0x00000026   Code   RO          149    .text.uart0_init    car_uart.o
-    0x08003c52   0x08003c52   0x00000002   PAD
-    0x08003c54   0x08003c54   0x000001d4   Code   RO          418    .text.uart_init     hf_uart.o
-    0x08003e28   0x08003e28   0x000000d4   Code   RO          467    .text.ultra_get_distance  hf_hc-sr04.o
-    0x08003efc   0x08003efc   0x000000d0   Code   RO          465    .text.ultra_init    hf_hc-sr04.o
-    0x08003fcc   0x08003fcc   0x000000b0   Code   RO         1446    .text.usart_baudrate_set  gd32e23x_usart.o
-    0x0800407c   0x0800407c   0x00000054   Code   RO         1444    .text.usart_deinit  gd32e23x_usart.o
-    0x080040d0   0x080040d0   0x00000012   Code   RO         1454    .text.usart_enable  gd32e23x_usart.o
-    0x080040e2   0x080040e2   0x0000001e   Code   RO         1460    .text.usart_receive_config  gd32e23x_usart.o
-    0x08004100   0x08004100   0x0000001e   Code   RO         1458    .text.usart_transmit_config  gd32e23x_usart.o
-    0x0800411e   0x0800411e   0x00000002   PAD
-    0x08004120   0x08004120   0x00000024   Code   RO          454    .text.ws2812b_init  hf_ws2812b.o
-    0x08004144   0x08004144   0x000000a8   Code   RO          456    .text.ws2812b_write  hf_ws2812b.o
-    0x080041ec   0x080041ec   0x0000002e   Code   RO         1679    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x0800421a   0x0800421a   0x0000000e   Code   RO         1685    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x08004228   0x08004228   0x00000002   Code   RO         1686    i.__scatterload_null  mc_p.l(handlers.o)
-    0x0800422a   0x0800422a   0x0000000e   Code   RO         1687    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x08004238   0x08004238   0x00000020   Data   RO         1684    Region$$Table       anon$$obj.o
+    0x08001600   0x08001600   0x00000020   Code   RO          102    .text.car_forward   car_motion.o
+    0x08001620   0x08001620   0x0000007c   Code   RO           91    .text.car_init      car_init.o
+    0x0800169c   0x0800169c   0x00000294   Code   RO          125    .text.car_left_rgb_flash  car_light.o
+    0x08001930   0x08001930   0x00000294   Code   RO          129    .text.car_right_rgb_flash  car_light.o
+    0x08001bc4   0x08001bc4   0x0000001a   Code   RO          106    .text.car_stop      car_motion.o
+    0x08001bde   0x08001bde   0x00000002   PAD
+    0x08001be0   0x08001be0   0x0000001c   Code   RO          114    .text.car_turnleft1  car_motion.o
+    0x08001bfc   0x08001bfc   0x00000020   Code   RO          112    .text.car_turnright1  car_motion.o
+    0x08001c1c   0x08001c1c   0x00000074   Code   RO          407    .text.delay_1ms     hf_systick.o
+    0x08001c90   0x08001c90   0x00000080   Code   RO          405    .text.delay_1us     hf_systick.o
+    0x08001d10   0x08001d10   0x000000dc   Code   RO          716    .text.exti_init     gd32e23x_exti.o
+    0x08001dec   0x08001dec   0x00000014   Code   RO          718    .text.exti_interrupt_enable  gd32e23x_exti.o
+    0x08001e00   0x08001e00   0x00000010   Code   RO          736    .text.exti_interrupt_flag_clear  gd32e23x_exti.o
+    0x08001e10   0x08001e10   0x00000044   Code   RO          734    .text.exti_interrupt_flag_get  gd32e23x_exti.o
+    0x08001e54   0x08001e54   0x000000c0   Code   RO          859    .text.gpio_af_set   gd32e23x_gpio.o
+    0x08001f14   0x08001f14   0x0000002a   Code   RO          289    .text.gpio_bit_output  hf_gpio.o
+    0x08001f3e   0x08001f3e   0x00000010   Code   RO          845    .text.gpio_bit_reset  gd32e23x_gpio.o
+    0x08001f4e   0x08001f4e   0x00000010   Code   RO          843    .text.gpio_bit_set  gd32e23x_gpio.o
+    0x08001f5e   0x08001f5e   0x0000002c   Code   RO          293    .text.gpio_get_input  hf_gpio.o
+    0x08001f8a   0x08001f8a   0x00000002   PAD
+    0x08001f8c   0x08001f8c   0x0000044a   Code   RO          287    .text.gpio_init     hf_gpio.o
+    0x080023d6   0x080023d6   0x0000002a   Code   RO          851    .text.gpio_input_bit_get  gd32e23x_gpio.o
+    0x08002400   0x08002400   0x0000008e   Code   RO          839    .text.gpio_mode_set  gd32e23x_gpio.o
+    0x0800248e   0x0800248e   0x0000008a   Code   RO          841    .text.gpio_output_options_set  gd32e23x_gpio.o
+    0x08002518   0x08002518   0x00000002   Code   RO           93    .text.int_init      car_init.o
+    0x0800251a   0x0800251a   0x00000002   PAD
+    0x0800251c   0x0800251c   0x0000006c   Code   RO          177    .text.key_init      car_4keys.o
+    0x08002588   0x08002588   0x00000058   Code   RO          445    .text.l9110s_backward  hf_l9110s_2.o
+    0x080025e0   0x080025e0   0x00000058   Code   RO          443    .text.l9110s_forward  hf_l9110s_2.o
+    0x08002638   0x08002638   0x000000b4   Code   RO          441    .text.l9110s_init   hf_l9110s_2.o
+    0x080026ec   0x080026ec   0x00000468   Code   RO           66    .text.main          main.o
+    0x08002b54   0x08002b54   0x0000002a   Code   RO          951    .text.nvic_irq_enable  gd32e23x_misc.o
+    0x08002b7e   0x08002b7e   0x00000002   PAD
+    0x08002b80   0x08002b80   0x00000020   Code   RO          965    .text.nvic_vector_table_set  gd32e23x_misc.o
+    0x08002ba0   0x08002ba0   0x000000b0   Code   RO          369    .text.pwm_duty      hf_pwm.o
+    0x08002c50   0x08002c50   0x00000180   Code   RO          365    .text.pwm_init      hf_pwm.o
+    0x08002dd0   0x08002dd0   0x0000001c   Code   RO           52    .text.pwm_jt        main.o
+    0x08002dec   0x08002dec   0x00000020   Code   RO           54    .text.pwm_jt1       main.o
+    0x08002e0c   0x08002e0c   0x0000018c   Code   RO         1041    .text.rcu_adc_clock_config  gd32e23x_rcu.o
+    0x08002f98   0x08002f98   0x000002f8   Code   RO         1089    .text.rcu_clock_freq_get  gd32e23x_rcu.o
+    0x08003290   0x08003290   0x00000024   Code   RO         1015    .text.rcu_periph_clock_enable  gd32e23x_rcu.o
+    0x080032b4   0x080032b4   0x00000024   Code   RO         1025    .text.rcu_periph_reset_disable  gd32e23x_rcu.o
+    0x080032d8   0x080032d8   0x00000024   Code   RO         1023    .text.rcu_periph_reset_enable  gd32e23x_rcu.o
+    0x080032fc   0x080032fc   0x00000028   Code   RO          203    .text.reed_check    car_reed.o
+    0x08003324   0x08003324   0x00000012   Code   RO          201    .text.reed_init     car_reed.o
+    0x08003336   0x08003336   0x00000020   Code   RO           56    .text.ren1          main.o
+    0x08003356   0x08003356   0x00000026   Code   RO           58    .text.ren3          main.o
+    0x0800337c   0x0800337c   0x000000a4   Code   RO           60    .text.ren4          main.o
+    0x08003420   0x08003420   0x00000026   Code   RO           62    .text.ren5          main.o
+    0x08003446   0x08003446   0x00000002   PAD
+    0x08003448   0x08003448   0x000000a8   Code   RO           64    .text.ren6          main.o
+    0x080034f0   0x080034f0   0x000000b4   Code   RO         1274    .text.syscfg_exti_line_config  gd32e23x_syscfg.o
+    0x080035a4   0x080035a4   0x000000e4   Code   RO          230    .text.system_clock_72m_hxtal  system_gd32e23x.o
+    0x08003688   0x08003688   0x00000008   Code   RO          226    .text.system_clock_config  system_gd32e23x.o
+    0x08003690   0x08003690   0x0000002c   Code   RO          971    .text.systick_clksource_set  gd32e23x_misc.o
+    0x080036bc   0x080036bc   0x00000040   Code   RO          403    .text.systick_config  hf_systick.o
+    0x080036fc   0x080036fc   0x00000012   Code   RO         1301    .text.timer_auto_reload_shadow_enable  gd32e23x_timer.o
+    0x0800370e   0x0800370e   0x00000002   PAD
+    0x08003710   0x08003710   0x000002f4   Code   RO         1375    .text.timer_channel_output_config  gd32e23x_timer.o
+    0x08003a04   0x08003a04   0x0000009e   Code   RO         1377    .text.timer_channel_output_mode_config  gd32e23x_timer.o
+    0x08003aa2   0x08003aa2   0x00000002   PAD
+    0x08003aa4   0x08003aa4   0x00000052   Code   RO         1379    .text.timer_channel_output_pulse_value_config  gd32e23x_timer.o
+    0x08003af6   0x08003af6   0x00000002   PAD
+    0x08003af8   0x08003af8   0x0000009e   Code   RO         1381    .text.timer_channel_output_shadow_config  gd32e23x_timer.o
+    0x08003b96   0x08003b96   0x00000014   Code   RO         1323    .text.timer_counter_read  gd32e23x_timer.o
+    0x08003baa   0x08003baa   0x00000012   Code   RO         1321    .text.timer_counter_value_config  gd32e23x_timer.o
+    0x08003bbc   0x08003bbc   0x000000e8   Code   RO         1291    .text.timer_deinit  gd32e23x_timer.o
+    0x08003ca4   0x08003ca4   0x00000012   Code   RO         1299    .text.timer_disable  gd32e23x_timer.o
+    0x08003cb6   0x08003cb6   0x00000012   Code   RO         1297    .text.timer_enable  gd32e23x_timer.o
+    0x08003cc8   0x08003cc8   0x00000012   Code   RO         1343    .text.timer_flag_clear  gd32e23x_timer.o
+    0x08003cda   0x08003cda   0x0000002a   Code   RO         1341    .text.timer_flag_get  gd32e23x_timer.o
+    0x08003d04   0x08003d04   0x000000fc   Code   RO         1295    .text.timer_init    gd32e23x_timer.o
+    0x08003e00   0x08003e00   0x00000014   Code   RO         1333    .text.timer_interrupt_enable  gd32e23x_timer.o
+    0x08003e14   0x08003e14   0x00000012   Code   RO         1339    .text.timer_interrupt_flag_clear  gd32e23x_timer.o
+    0x08003e26   0x08003e26   0x00000030   Code   RO         1367    .text.timer_primary_output_config  gd32e23x_timer.o
+    0x08003e56   0x08003e56   0x00000002   PAD
+    0x08003e58   0x08003e58   0x00000020   Code   RO          479    .text.tm1637_init   hf_tm1637.o
+    0x08003e78   0x08003e78   0x00000026   Code   RO          149    .text.uart0_init    car_uart.o
+    0x08003e9e   0x08003e9e   0x00000002   PAD
+    0x08003ea0   0x08003ea0   0x000001d4   Code   RO          418    .text.uart_init     hf_uart.o
+    0x08004074   0x08004074   0x000000d4   Code   RO          467    .text.ultra_get_distance  hf_hc-sr04.o
+    0x08004148   0x08004148   0x000000d0   Code   RO          465    .text.ultra_init    hf_hc-sr04.o
+    0x08004218   0x08004218   0x000000b0   Code   RO         1446    .text.usart_baudrate_set  gd32e23x_usart.o
+    0x080042c8   0x080042c8   0x00000054   Code   RO         1444    .text.usart_deinit  gd32e23x_usart.o
+    0x0800431c   0x0800431c   0x00000012   Code   RO         1454    .text.usart_enable  gd32e23x_usart.o
+    0x0800432e   0x0800432e   0x0000001e   Code   RO         1460    .text.usart_receive_config  gd32e23x_usart.o
+    0x0800434c   0x0800434c   0x0000001e   Code   RO         1458    .text.usart_transmit_config  gd32e23x_usart.o
+    0x0800436a   0x0800436a   0x00000002   PAD
+    0x0800436c   0x0800436c   0x00000024   Code   RO          454    .text.ws2812b_init  hf_ws2812b.o
+    0x08004390   0x08004390   0x000000a8   Code   RO          456    .text.ws2812b_write  hf_ws2812b.o
+    0x08004438   0x08004438   0x0000002e   Code   RO         1679    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x08004466   0x08004466   0x0000000e   Code   RO         1685    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x08004474   0x08004474   0x00000002   Code   RO         1686    i.__scatterload_null  mc_p.l(handlers.o)
+    0x08004476   0x08004476   0x0000000e   Code   RO         1687    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x08004484   0x08004484   0x00000020   Data   RO         1684    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08004258, Size: 0x00000450, Max: 0x00002000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080044a8, Size: 0x00000450, Max: 0x00002000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08004258   0x00000004   Data   RW          232    .data.SystemCoreClock  system_gd32e23x.o
-    0x20000004   0x0800425c   0x00000003   Data   RW          136    .data.rgb_blue      car_light.o
-    0x20000007   0x0800425f   0x00000003   Data   RW          138    .data.rgb_cyan      car_light.o
-    0x2000000a   0x08004262   0x00000003   Data   RW          137    .data.rgb_green     car_light.o
-    0x2000000d   0x08004265   0x00000003   Data   RW          139    .data.rgb_purple    car_light.o
-    0x20000010   0x08004268   0x00000003   Data   RW          133    .data.rgb_red       car_light.o
-    0x20000013   0x0800426b   0x00000003   Data   RW          140    .data.rgb_user_define  car_light.o
-    0x20000016   0x0800426e   0x00000003   Data   RW          135    .data.rgb_white     car_light.o
-    0x20000019   0x08004271   0x00000003   Data   RW          134    .data.rgb_yellow    car_light.o
-    0x2000001c   0x08004274   0x00000004   PAD
+    0x20000000   0x080044a8   0x00000004   Data   RW          232    .data.SystemCoreClock  system_gd32e23x.o
+    0x20000004   0x080044ac   0x00000003   Data   RW          136    .data.rgb_blue      car_light.o
+    0x20000007   0x080044af   0x00000003   Data   RW          138    .data.rgb_cyan      car_light.o
+    0x2000000a   0x080044b2   0x00000003   Data   RW          137    .data.rgb_green     car_light.o
+    0x2000000d   0x080044b5   0x00000003   Data   RW          139    .data.rgb_purple    car_light.o
+    0x20000010   0x080044b8   0x00000003   Data   RW          133    .data.rgb_red       car_light.o
+    0x20000013   0x080044bb   0x00000003   Data   RW          140    .data.rgb_user_define  car_light.o
+    0x20000016   0x080044be   0x00000003   Data   RW          135    .data.rgb_white     car_light.o
+    0x20000019   0x080044c1   0x00000003   Data   RW          134    .data.rgb_yellow    car_light.o
+    0x2000001c   0x080044c4   0x00000004   PAD
     0x20000020        -       0x00000001   Zero   RW           42    .bss.EXTI4_15_IRQHandler.status  gd32e23x_it.o
-    0x20000021   0x08004274   0x00000003   PAD
+    0x20000021   0x080044c4   0x00000003   PAD
     0x20000024        -       0x00000004   Zero   RW          410    .bss.count_1ms      hf_systick.o
     0x20000028        -       0x00000004   Zero   RW          409    .bss.count_1us      hf_systick.o
     0x2000002c        -       0x00000004   Zero   RW          470    .bss.g_current_time_value  hf_hc-sr04.o
     0x20000030        -       0x00000001   Zero   RW          471    .bss.g_flag_unhandler  hf_hc-sr04.o
-    0x20000031   0x08004274   0x00000003   PAD
+    0x20000031   0x080044c4   0x00000003   PAD
     0x20000034        -       0x00000004   Zero   RW          469    .bss.g_overflow_times  hf_hc-sr04.o
     0x20000038        -       0x00000001   Zero   RW          205    .bss.g_reed_flag    car_reed.o
-    0x20000039   0x08004274   0x00000001   PAD
+    0x20000039   0x080044c4   0x00000001   PAD
     0x2000003a        -       0x0000000c   Zero   RW          373    .bss.period         hf_pwm.o
     0x20000046        -       0x00000003   Zero   RW          141    .bss.rgb_off        car_light.o
-    0x20000049   0x08004274   0x00000007   PAD
+    0x20000049   0x080044c4   0x00000007   PAD
     0x20000050        -       0x00000400   Zero   RW          240    STACK               startup_gd32e23x.o
 
 
@@ -3283,7 +3302,7 @@ Image component sizes
         44          8          0          0          0       1287   car_buzzer.o
        126          4          0          0          0        729   car_init.o
       2296        108          0         24          3       3697   car_light.o
-        86          4          0          0          0       1078   car_motion.o
+       118          8          0          0          0       1078   car_motion.o
         58          4          0          0          1       1183   car_reed.o
         38          0          0          0          0        973   car_uart.o
       1024         44          0          0          0       7670   gd32e23x_adc.o
@@ -3304,12 +3323,12 @@ Image component sizes
         32          0          0          0          0       2061   hf_tm1637.o
        468         32          0          0          0       4003   hf_uart.o
        204         12          0          0          0       1519   hf_ws2812b.o
-      1104         84          0          0          0       2640   main.o
+      1660         96          0          0          0       2857   main.o
         28          8        204          0       1024        704   startup_gd32e23x.o
        408         56          0          4          0       1819   system_gd32e23x.o
 
     ----------------------------------------------------------------------
-     14568        800        236         28       1076     106470   Object Totals
+     15156        816        236         28       1076     106687   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         26          0          0          0         18          0   (incl. Padding)
 
@@ -3370,15 +3389,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     16748        858        236         28       1076     107034   Grand Totals
-     16748        858        236         28       1076     107034   ELF Image Totals
-     16748        858        236         28          0          0   ROM Totals
+     17336        874        236         28       1076     107251   Grand Totals
+     17336        874        236         28       1076     107251   ELF Image Totals
+     17336        874        236         28          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                16984 (  16.59kB)
+    Total RO  Size (Code + RO Data)                17572 (  17.16kB)
     Total RW  Size (RW Data + ZI Data)              1104 (   1.08kB)
-    Total ROM Size (Code + RO Data + RW Data)      17012 (  16.61kB)
+    Total ROM Size (Code + RO Data + RW Data)      17600 (  17.19kB)
 
 ==============================================================================
 
