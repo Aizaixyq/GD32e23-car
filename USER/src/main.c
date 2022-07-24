@@ -28,9 +28,9 @@ void ren1(){
 void ren3(){
 	car_stop();
 	car_turnright1(); 
-	car_right_rgb_flash(green, 3, 390);
+	car_right_rgb_flash(green, 3, 290);
 	pwm_jt();
-	delay_1ms(150);
+	delay_1ms(100);
 	car_stop();
 }
 
@@ -38,39 +38,39 @@ void ren4(){
 	car_stop();
 	car_both_rgb_on(red, 1000);
 	car_turnright1();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_forward();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_stop();
 	car_turnleft1();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_stop();
 	car_turnright1();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_stop();
 	car_both_rgb_off();
 }
 void ren5(){
 	car_stop();
 	car_turnleft1();
-	car_left_rgb_flash(green, 3, 400);
+	car_left_rgb_flash(green, 3, 290);
 	pwm_jt1();
-	delay_1ms(150);
+	delay_1ms(100);
 	car_stop();
 }
 void ren6(void){
 	car_stop();
 	car_both_rgb_on(red, 1000);
 	car_turnleft1();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_forward();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_stop();
 	car_turnright1();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_stop();
 	car_turnleft1();
-	delay_1ms(600);
+	delay_1ms(1500);
 	car_stop();
 	car_both_rgb_off();
 }
@@ -85,13 +85,13 @@ int main(void)
 	
 		int cibiao = 1, za = 1, distance_value, out = 0;
 	
-		int left_p, right_p, bs = 6200, p, p_old = 0, p_old2 = 0, old2 = 0, adc_value[3], last = 0;
+		int left_p, right_p, bs = 6900, p, p_old = 0, p_old2 = 0, old2 = 0, adc_value[3], last = 0;
 	
-		int ren = 0, ren2 = 0, ren2_js = 0, ren3_b = 0, ren3_js = 0 , ren5_b = 0, ren5_js = 0;
+		int ren = 0, ren2 = 0, ren2_js = 0;
 	
 		g_reed_flag = 0;
 		
-		float kp = 0, kd = 0, ks = 1.0;
+		float kp = 0, kd = 4.0, ks = 4.0;
 		
 		
     car_init();							//智能车初始化
@@ -106,13 +106,13 @@ int main(void)
 					adc_value[2] = ((adc_mean_filter(ADC_CH_01,5)*1.0)/4095)*100;
 					//adc_value[1] = adc_mean_filter(ADC_CH_04,5);
 					
-					//distance_value = ultra_get_distance();
+					distance_value = ultra_get_distance();
 					
 					p = ((adc_value[0] - adc_value[2])*100)/(adc_value[0] + adc_value[2]+1);
 					if(p>100) p=100;
 					if(p<-100) p=-100;
 					
-						kp = 1.0 + (p*p*1.0)* 0.0036;
+					kp = 2.0 + (p*p*1.0)* 0.0036;
 					
 					
 					if(abs(p) >= 20){
@@ -122,12 +122,11 @@ int main(void)
 						ks = 1.0 - (abs(p)/(40*1.0));
 					}
 					
-					if(abs(p) >= 6){ 
-						kd = 1.8;
+					if(abs(p) >= 5){
+						kd = 1.9;
 					}
-					else {
-						kd = 5.0;
-					}
+					else kd = 5.0;
+					
 					
 					out = (kp * p + kd * (p*1.0 - (p_old*0.7 + p_old2*0.3)))*50;
 					
@@ -144,8 +143,6 @@ int main(void)
 					l9110s_forward(left, (int)(left_p * ks));
 					l9110s_forward(right, (int)(right_p * ks));
 					
-				/*
-				if(ren == 1){
 					if(ren2 == 1){
 						if(ren2_js > 10)ren2 = 0;
 						if(ren2_js%5 == 0){
@@ -155,32 +152,6 @@ int main(void)
 						continue;
 					}
 					
-					if(ren3_b == 1){
-						if(ren3_js > 9){
-							l9110s_backward(left, 1500);
-							l9110s_backward(right, 1500);
-							delay_1ms(150);
-							ren3();
-							ren3_b = 0;
-						}
-						else ren3_js++;
-						continue;
-					}
-					
-					if(ren5_b == 1){
-						if(ren5_js > 9){
-							l9110s_backward(left, 1500);
-							l9110s_backward(right, 1500);
-							delay_1ms(170);
-							ren5();
-							ren5_b = 0;
-						}
-						else ren5_js++;
-						continue;
-					}
-					ren = 0;
-				}
-				
 					reed_check();
 				
 					if(g_reed_flag == 1){
@@ -190,17 +161,20 @@ int main(void)
 						}
 						else if(cibiao == 2){
 							ren2 = 1;
-							ren = 1;
 							cibiao++;
 						}
 						else if(cibiao == 3){
-							ren3_b = 1;
-							ren = 1;
+							l9110s_backward(left, 1500);
+							l9110s_backward(right, 1500);
+							delay_1ms(150);
+							ren3();
 							cibiao++;
 						}
 						else if(cibiao == 4){
-							ren5_b = 1;
-							ren = 1;
+							l9110s_backward(left, 1500);
+							l9110s_backward(right, 1500);
+							delay_1ms(150);
+							ren5();
 							cibiao++;
 						}
 						else if(cibiao == 5){
@@ -218,7 +192,7 @@ int main(void)
 							za++;
 						}
 					}
-					*/
+					
 					
 				}
 }
