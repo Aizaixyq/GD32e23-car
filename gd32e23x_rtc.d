@@ -1,0 +1,31 @@
+./output/gd32e23x_rtc.o: \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Src\gd32e23x_rtc.c \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_rtc.h \
+  ..\..\Libraries\Device\GD32E23x_p\Include\gd32e23x.h \
+  ..\..\Libraries\Device\CMSIS\Keil_Common\core_cm23.h \
+  D:\keli2\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\..\Libraries\Device\CMSIS\Keil_Common\cmsis_version.h \
+  ..\..\Libraries\Device\CMSIS\Keil_Common\cmsis_compiler.h \
+  ..\..\Libraries\Device\CMSIS\Keil_Common\cmsis_armclang.h \
+  D:\keli2\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  D:\keli2\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  ..\..\Libraries\Device\GD32E23x_p\Include\system_gd32e23x.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Head\gd32e23x_libopt.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_adc.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_crc.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_dbg.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_dma.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_exti.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_fmc.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_gpio.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_syscfg.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_i2c.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_fwdgt.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_pmu.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_rcu.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_spi.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_timer.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_usart.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_wwdgt.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_misc.h \
+  ..\..\Libraries\Device\GD32E23x_p\GD32E23x_Lib\Inc\gd32e23x_cmp.h
